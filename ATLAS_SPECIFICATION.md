@@ -183,7 +183,7 @@ BUT: "Multi-tenant audit tool with API integration, scoring A-F, PDF export, ema
 
 **CP0 (Setup) guide needs:**
 - Vercel monorepo setup patterns (research docs, examples)
-- Supabase multi-tenant patterns (check warmanswers-app for RLS examples)
+- Database multi-tenant patterns (check previous projects or documentation for examples)
 - Database schema (audits table structure, indexes)
 
 **CP1 (Analysis) guide needs:**
@@ -337,7 +337,7 @@ Human: "Run ATLAS to plan Effort for STEP_1_2"
 - Git structure (monorepo? standalone? copy from where?)
 - Vercel config (team account, project settings, environment vars)
 - Supabase (tables needed, RLS policies, initial data)
-- Reference examples (warmanswers-app setup, other projects)
+- Reference examples (previous projects, documentation)
 - Document exact commands, exact steps
 
 **Step 4: Create CP0_GUIDE.md (1 hour)**
@@ -834,7 +834,7 @@ gh pr create --base main --head staging \
 
 ## What Worked (Repeat in Future)
 
-✅ **Copied Supabase patterns from warmanswers-app:** Saved 8 hours (auth, RLS, client setup)
+✅ **Copied database patterns from previous project:** Saved 8 hours (auth, security, client setup)
 ✅ **Multi-tenant architecture:** No regrets, enables SaaS path
 ✅ **Testing across verticals in CP3:** Caught scoring calibration issues early
 ✅ **Puppeteer memory config 1GB:** Solved crashes immediately
