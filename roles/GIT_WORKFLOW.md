@@ -204,7 +204,7 @@ git push origin staging
 
 # 6. Wait for Vercel deployment (~2 min)
 # Check: https://vercel.com/dashboard
-# Or staging URL: staging.10xbuild-sites.com
+# Or staging URL: staging.yourdomain.com
 
 # 7. Test on staging
 # - Visit staging URL
