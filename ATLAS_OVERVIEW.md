@@ -84,7 +84,7 @@ This is WRONG. Don't think this way.
 **Example:**
 ```
 ATLAS_STEPS.md contains:
-  STEP_1_2: Build [Feature Name] (e.g., Site Cloner Tool, User Dashboard, API Service)
+  STEP_1_2: Build [Feature Name] (e.g., Payment System, User Dashboard, Notification Service)
 
 No START_HERE.md exists yet for STEP_1_2
 → AI1 research phase needed
@@ -110,8 +110,8 @@ No START_HERE.md exists yet for STEP_1_2
    - If specific: 20% validation (is this approach sound? any gotchas?)
 
 4. **Make implementation outcomes MORE specific**
-   - Substep says: "Build audit tool"
-   - AI1 specifies: "Multi-tenant audit tool with API integration, database backend, PDF reports, works across multiple customer segments, <2min analysis time, structured scoring system"
+   - Substep says: "Build user dashboard"
+   - AI1 specifies: "Multi-tenant dashboard with real-time data integration, database backend, export capabilities, works across multiple customer segments, <2sec load time, responsive design"
 
 5. **Rough CP breakdown** (3-10 CPs estimated)
    - AI1 guesses phases: Setup, core features, additional features, testing
@@ -413,10 +413,10 @@ git push origin effort/STEP_1_2_SITE_CLONER
 
 # 2. Update ATLAS_STEPS.md (5 min)
 # Mark substep complete:
-# STEP_1_2: Build Site Cloner
+# STEP_1_2: Build Payment System
 # **Status:** ✅ COMPLETE
 # **Completed:** 2025-12-20
-# **Outcome:** Tool deployed and operational
+# **Outcome:** Feature deployed and operational
 
 # 3. Update TODO_TRACKER (final update)
 # Mark all CPs complete
@@ -493,7 +493,7 @@ Strategic milestone (months). What must become true for company to advance.
 ### **Substep**
 Execution unit within Step (weeks). One substep = one Effort.
 
-**Example:** "STEP_1_2: Build Site Cloner" (2 weeks)
+**Example:** "STEP_1_2: Build Payment System" (2 weeks)
 
 **Named:** STEP_X_Y (e.g., STEP_1_2, STEP_3_5)
 
@@ -664,18 +664,18 @@ AI3's handoff document to next substep.
 
 ### Substeps
 
-#### STEP_1_1: Build Audit Engine
+#### STEP_1_1: Build User Dashboard
 **Status:** ✅ COMPLETE
 **Completed:** 2025-12-15
-**Outcome:** Tool deployed and validated across customer segments
-**Summary:** efforts/STEP_1_1_AUDIT_ENGINE/COMPLETION_SUMMARY.md
+**Outcome:** Feature deployed and validated with initial users
+**Summary:** efforts/STEP_1_1_USER_DASHBOARD/COMPLETION_SUMMARY.md
 
-#### STEP_1_2: Build Site Cloner
+#### STEP_1_2: Build Payment System
 **Status:** 🔄 IN_PROGRESS (AI3 on CP3 of 5)
 **Started:** 2025-12-16
 **Expected:** 2025-12-20
 
-#### STEP_1_3: Build Rebuild Engine Core
+#### STEP_1_3: Build Notification Service
 **Status:** ⏸️ PLANNED
 ```
 
