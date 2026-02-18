@@ -298,7 +298,7 @@ BUT: "Multi-tenant website audit tool with:
 - **Multi-vertical:** Works for contractor, law, healthcare (tested on 10+ sites per vertical)
 - **Performance:** <2 min per analysis (target: <90 seconds)
 - **Architecture:** Next.js 15 + Supabase multi-tenant (RLS for isolation) + Vercel serverless
-- **Deployment:** audit.10xbuild.com (subdomain)
+- **Deployment:** tool.yourdomain.com (subdomain)
 - **Lead capture:** Email collection, stored in customers table
 - **Monitoring:** Vercel analytics, error tracking, usage metrics
 - **Cost target:** <$200/mo at 100 audits/day"
