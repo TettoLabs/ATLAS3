@@ -84,7 +84,7 @@ This is WRONG. Don't think this way.
 **Example:**
 ```
 ATLAS_STEPS.md contains:
-  STEP_1_2: Build Site Cloner Tool
+  STEP_1_2: Build [Feature Name] (e.g., Site Cloner Tool, User Dashboard, API Service)
 
 No START_HERE.md exists yet for STEP_1_2
 → AI1 research phase needed
