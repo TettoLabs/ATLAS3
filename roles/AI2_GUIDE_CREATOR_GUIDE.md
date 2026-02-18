@@ -295,7 +295,7 @@ Typical counts:
 
 ### CP4: Testing & Deployment (AI3, 1 day)
 **Goal:** Validate cloning works across verticals, deploy to production
-**Key tasks:** Test on contractor/law/healthcare sites, performance validation, deploy
+**Key tasks:** Test across customer segments, performance validation, deploy
 **Output:** tool.yourdomain.com live and validated
 
 ---
