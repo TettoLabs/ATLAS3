@@ -40,7 +40,7 @@
 6. Success definition (metrics per timeframe, failure signals)
 7. Known unknowns (what you'll discover, hypotheses testing)
 
-**See:** your company_CONTEXT.md example (400+ lines, specific, honest)
+**Goal:** 400-600 lines, specific and honest about your situation.
 
 ---
 
@@ -140,7 +140,7 @@ ls /ATLAS3/strategy/*.md | wc -l
 **Process:**
 
 **Option A: Write yourself** (1-2 hours if thoughtful)
-- Use structure from ONBOARDING.md or your company example
+- Use structure outlined above (7 required sections)
 - Be honest (real constraints, not aspirational)
 - Be specific (concrete metrics, clear customer profile)
 - Acknowledge unknowns (what you'll discover)
@@ -295,12 +295,62 @@ Usher should:
 - Substeps are supply/demand initiatives
 - Systematic execution increases the probability of achieving marketplace liquidity
 
-**your company pattern (Service → Platform):**
-- Part 1: Build tools (foundation)
-- Part 2: Deliver to customers + add verticals (validation)
-- Part 3: Platform features (productization)
+**ATLAS3 adapts to your domain.** Define steps that match your business model and strategic priorities.
 
-**ATLAS3 adapts to your domain.**
+---
+
+## Adapting ATLAS for Your Technology Stack
+
+**ATLAS examples use Next.js + Vercel + Supabase**, but the framework works with any technology stack.
+
+### How to Adapt
+
+**The framework structure never changes:**
+- AI1 → AI2 → AI3 phases (research → planning → execution)
+- Checkpoint system (CP0 setup, CP1-X implementation, final CP testing)
+- Progress tracking (TODO_TRACKER, COMPLETION_SUMMARY)
+- Learning capture (LEARNINGS_LOG, knowledge compounding)
+
+**What you adapt: Technology references in implementation**
+
+**Example adaptations:**
+
+**Python/Django projects:**
+- Where examples say "Vercel deployment" → Use Railway, Render, or AWS
+- Where examples say "Supabase" → Use PostgreSQL with Django ORM
+- Where examples say "Next.js app" → Use Django application
+- Where examples say "npm install" → Use pip install
+- **Workflow stays identical:** AI1 researches your Django setup, AI2 creates CP guides for Django, AI3 executes
+
+**Mobile apps (iOS/Android):**
+- Where examples say "deploy to Vercel" → Submit to App Store/Play Store
+- Where examples say "database setup" → Configure Firebase or local SQLite
+- Where examples say "staging URL" → TestFlight or internal testing
+- **Workflow stays identical:** Same three phases, same checkpoint structure
+
+**Go/Rust backend services:**
+- Where examples say "Next.js" → Your language/framework
+- Where examples say "Vercel" → Docker + Kubernetes or cloud platform
+- Where examples say "Supabase" → PostgreSQL or your database choice
+- **Workflow stays identical:** Research → Plan → Execute with your tech
+
+**Desktop applications:**
+- Where examples say "deployment" → Installer distribution and code signing
+- Where examples say "database" → Local SQLite or embedded database
+- Where examples say "Vercel project" → Build pipeline for your platform
+- **Workflow stays identical:** Same orchestration, different implementation
+
+### Key Principle
+
+**Framework = Orchestration system (universal)**
+**Examples = Implementation details (adapt to your stack)**
+
+When reading guides and templates:
+- Focus on the *structure* (what phases, what checkpoints, what order)
+- Translate the *technology* (your stack, your tools, your deployment)
+- Keep the *workflow* (AI1/AI2/AI3, checkpoints, progress tracking)
+
+The examples are detailed and specific to help you understand the framework depth. Apply the same depth to your own technology choices.
 
 ---
 
@@ -353,8 +403,8 @@ Usher should:
 3. See velocity improving
 
 **This quarter:**
-1. Complete Part 1 Steps (foundation)
-2. Review strategy (Mode 2 - refine Part 2)
+1. Complete initial strategic milestones
+2. Review strategy (Mode 2 - refine upcoming steps)
 3. Evolve templates (Mode 8 - apply learnings)
 
 ---
