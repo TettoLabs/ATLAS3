@@ -57,14 +57,14 @@ Human: "Continue ATLAS on STEP_1_2" (framework auto-detects no START_HERE → AI
 
 **Step 2: Deep Research (2-6 hours, varies by specificity)**
 
-**If substep is vague** (e.g., "Build Audit Engine"):
+**If substep is vague** (e.g., "Build User Dashboard"):
 - 80% research: Competitive analysis, technical options, architecture patterns
 - What exists? (inspect.dev, GTMetrix, PageSpeed, other audit tools)
 - How do they work? (APIs, scoring, reporting)
 - What can we learn/copy? (patterns, approaches, gotchas)
 - What should we build? (make MORE specific than substep definition)
 
-**If substep is specific** (e.g., "Build Audit Engine with PageSpeed API, Supabase multi-tenant, generates PDF reports"):
+**If substep is specific** (e.g., "Build User Dashboard with PageSpeed API, Supabase multi-tenant, generates PDF reports"):
 - 20% validation research: Is this approach sound? Any gotchas?
 - Validate assumptions (PageSpeed rate limits? Supabase RLS patterns?)
 - Find examples (who else has done this? what patterns work?)
@@ -349,7 +349,7 @@ Human: "Run ATLAS to plan Effort for STEP_1_2"
 # CP0 Guide - Infrastructure Setup
 
 **Role:** AI3 (Implementer)
-**Goal:** Initialize all technical infrastructure for Audit Engine
+**Goal:** Initialize all technical infrastructure for User Dashboard
 **Duration:** 4 hours
 **Type:** Setup/Initialization (not research)
 
@@ -470,7 +470,7 @@ Estimated: 2 days implementation
 **File:** `/efforts/STEP_1_2_[NAME]/OVERVIEW_GUIDE.md`
 
 ```markdown
-# Overview Guide - STEP_1_2 Audit Engine
+# Overview Guide - STEP_1_2 User Dashboard
 
 **Quick-Start Guide for AI3**
 
@@ -517,7 +517,7 @@ CP4: Comprehensive (10+ site types, performance, accessibility)
 **File:** `/efforts/STEP_1_2_[NAME]/TODO_TRACKER.md`
 
 ```markdown
-# TODO Tracker - STEP_1_2 Audit Engine
+# TODO Tracker - STEP_1_2 User Dashboard
 
 **Effort:** STEP_1_2_AUDIT_ENGINE
 **Status:** PLANNED (not started)
@@ -768,7 +768,7 @@ git push origin staging
 
 # 3. Create PR to main (don't merge - human approves)
 gh pr create --base main --head staging \
-  --title "[STEP_1_2] Launch Audit Engine V0.5" \
+  --title "[STEP_1_2] Launch User Dashboard V0.5" \
   --body "..."
 
 # 4. Create COMPLETION_SUMMARY.md
@@ -779,7 +779,7 @@ gh pr create --base main --head staging \
 **File:** `/efforts/STEP_1_2_[NAME]/COMPLETION_SUMMARY.md`
 
 ```markdown
-# Completion Summary - STEP_1_2 Audit Engine
+# Completion Summary - STEP_1_2 User Dashboard
 
 **Substep:** STEP_1_2 from ATLAS_STEPS.md
 **Completed:** 2025-12-20
@@ -790,7 +790,7 @@ gh pr create --base main --head staging \
 
 ## What Was Built
 
-**Deliverable:** Audit Engine V0.5
+**Deliverable:** User Dashboard V0.5
 - Multi-tenant website analysis tool
 - URL: tool.yourdomain.com
 - Analyzes: Performance, SEO, mobile, accessibility, security
@@ -855,20 +855,20 @@ gh pr create --base main --head staging \
 
 ## Recommendations for Next Substep
 
-**For STEP_1_3 (Site Cloner):**
-1. Reuse Audit Engine's Supabase instance (don't create new project)
+**For STEP_1_3 (Payment System):**
+1. Reuse User Dashboard's Supabase instance (don't create new project)
 2. Copy Puppeteer patterns (scraping + rendering proven)
 3. Start with 3 tables max (don't over-architect)
 4. Budget PageSpeed paid tier from start (avoid rate limit surprise)
 
 **For AI1 researching STEP_1_3:**
-- Audit Engine codebase exists (reference /apps/audit-engine/)
+- User Dashboard codebase exists (reference /apps/audit-engine/)
 - Supabase patterns are proven (check /lib/supabase/ for RLS examples)
 - Multi-tenant works (no architecture changes needed)
 
 **For AI2 planning STEP_1_3:**
 - CP0 can be lighter (shared infrastructure already exists)
-- Consider: Can Site Cloner and Audit Engine share components? (both analyze sites)
+- Consider: Can Payment System and User Dashboard share components? (both analyze sites)
 
 ---
 
@@ -897,7 +897,7 @@ gh pr create --base main --head staging \
 
 Mark substep complete:
 ```markdown
-#### STEP_1_2: Build Audit Engine
+#### STEP_1_2: Build User Dashboard
 **Status:** ✅ COMPLETE
 **Completed:** 2025-12-20
 **Outcome:** tool.yourdomain.com live, tested across 3 verticals
@@ -1014,16 +1014,16 @@ Next: "Continue ATLAS on STEP_1_2" (will auto-load CP0 for AI3)
 
 ### Substeps
 
-#### STEP_1_1: Audit Engine
+#### STEP_1_1: User Dashboard
 **Status:** ✅ COMPLETE
 **Completed:** 2025-12-15
 **Outcome:** tool.yourdomain.com live
 
-#### STEP_1_2: Site Cloner
+#### STEP_1_2: Payment System
 **Status:** 🔄 IN_PROGRESS (AI3 on CP3 of 5)
 **Started:** 2025-12-16
 
-#### STEP_1_3: Rebuild Engine Core
+#### STEP_1_3: Notification Service Core
 **Status:** ⏸️ PLANNED
 ```
 
