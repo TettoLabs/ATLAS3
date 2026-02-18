@@ -482,4 +482,4 @@ git push origin main
 
 ---
 
-**You orchestrate. AIs execute. ATLAS maintains quality. Build to $1M+ ARR systematically.** 🎯
+**You orchestrate. AIs execute. ATLAS maintains quality. A framework for systematic company building.** 🎯

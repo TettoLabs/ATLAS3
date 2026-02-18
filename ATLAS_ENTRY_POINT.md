@@ -336,7 +336,7 @@ What would you like?
 - **Quality** (Mode 7, 8) - Maintain and improve system
 - **Understanding** (Mode 4) - Know where you are, how system works
 
-**Usher makes ATLAS3 usable for building billion-dollar companies.**
+**Usher makes ATLAS3 usable for systematic, disciplined company building.**
 
 ---
 

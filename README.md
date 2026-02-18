@@ -2,7 +2,7 @@
 
 **Adaptive Task & Lifecycle Architecture System**
 
-Production-grade orchestration framework for building companies from zero to scale.
+Structured orchestration framework for building companies from zero to scale.
 
 **New in v3.0:** Clean installation with improved strategy structure (individual step files, high-level tracker)
 
@@ -28,13 +28,32 @@ ATLAS is a **three-phase AI orchestration system** that transforms strategic vis
 - Multi-month projects with evolving strategy
 - Work requiring deep research → detailed planning → precise execution
 - Teams needing exact progress tracking and resume capability
-- Projects where learning must compound (Effort 10 faster than Effort 1)
+- Projects where learning can compound over time (with later efforts becoming more efficient)
 
 **Not needed for:**
 - Weekend projects
 - Simple bug fixes
 - Well-defined 1-week tasks
 - Work with no strategic uncertainty
+
+---
+
+## Important Context
+
+**What ATLAS provides:**
+- Structured workflow for planning and execution
+- Knowledge capture and compounding mechanisms
+- Progress tracking and resume capability
+- Systematic approach to complex projects
+
+**What ATLAS does not guarantee:**
+- Market fit (you must validate your market)
+- Execution quality (requires skilled execution)
+- Business outcomes (framework reduces chaos, doesn't ensure success)
+- Speed improvements (gains depend on consistent application and learning)
+
+**Reality check:**
+Building a successful company is extremely difficult. Most fail due to market factors, not execution frameworks. ATLAS helps with the "how to build" - you're responsible for "what to build" and "who wants it."
 
 ---
 
@@ -168,15 +187,15 @@ Next Substep AI1 Reads COMPLETION_SUMMARY
 **5. Learning Compounds**
 - COMPLETION_SUMMARY → Next AI1 (efficient handoff)
 - LEARNINGS_LOG → Future planning (patterns applied)
-- Velocity improves (Effort 20 faster than Effort 1)
+- Velocity can improve (Effort 20 may be 2-5x more efficient than Effort 1, depending on execution)
 
 ---
 
 ## Version
 
 **Current:** v3.0
-**Status:** Production-ready (clean installation)
-**Built for:** Companies building to $1M+ ARR
+**Status:** Structured framework (clean installation)
+**Designed for:** Companies pursuing $1M+ ARR (requires disciplined execution)
 
 ---
 
@@ -196,7 +215,7 @@ ATLAS v3.0 embodies:
 **Knowledge compounds:**
 - Each Effort teaches the next
 - Templates evolve based on learnings
-- Velocity improves systematically
+- Velocity can improve with consistent application
 
 **Quality is non-negotiable:**
 - Security gates (AI3 checks vulnerabilities)
@@ -225,7 +244,7 @@ ATLAS v3.0 embodies:
 
 **your company:** AI-native WebOps platform (contractors → law → healthcare → all SMBs)
 
-**Reusable for:** Any company building systematically from zero to scale
+**Reusable for:** Companies that benefit from systematic planning and execution discipline
 
 **Proven approach:** Based on MLE (project orchestration) and IRIS2 (deterministic workflows)
 
@@ -245,4 +264,4 @@ ATLAS v3.0 embodies:
 
 ---
 
-**Welcome to ATLAS v3.0. Build billion-dollar companies systematically.**
+**Welcome to ATLAS v3.0. A framework for disciplined company building.**

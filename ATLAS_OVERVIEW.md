@@ -1,9 +1,9 @@
-# ATLAS v2.0 - Complete System Overview
+# ATLAS v3.0 - Complete System Overview
 
 **Purpose:** Comprehensive explanation of ATLAS orchestration system
 **Audience:** Everyone using ATLAS (founders, AIs, team members)
 **Status:** Master documentation - read this first
-**Version:** 2.0
+**Version:** 3.0
 
 ---
 
@@ -19,8 +19,8 @@ ATLAS is a **state-driven orchestration framework** that turns company vision in
 **ATLAS IS:**
 - A routing and workflow system for AI cognition
 - A state machine encoded in markdown files
-- A systematic approach to company building (0 to $1M+ ARR)
-- A knowledge compounding engine (Effort 20 is 10x faster than Effort 1)
+- A systematic approach to company building (execution determines outcomes)
+- A knowledge compounding engine (with the potential for 2-4x efficiency gains over 20+ efforts)
 
 ---
 
@@ -980,7 +980,7 @@ Effort STEP_1_3 completes in 60% of STEP_1_2 time
 Next Efforts even faster...
 ```
 
-**This is how ATLAS enables:** Effort 1 takes 2 weeks → Effort 10 takes 4 days (same quality, compounded knowledge)
+**This is how ATLAS can enable improvement:** Effort 1 takes 2 weeks → Effort 10 may take 7-10 days (with consistent application and compounded knowledge)
 
 ---
 
@@ -1086,6 +1086,28 @@ Framework determined: AI3 phase, CP3, exact context loaded
 
 ---
 
+## Framework Limitations
+
+**ATLAS optimizes for:**
+- Systematic execution over ad-hoc work
+- Learning capture over repeated mistakes
+- Clear progress tracking over uncertainty
+
+**ATLAS cannot fix:**
+- Wrong market or product choice
+- Insufficient customer research
+- Poor product-market fit
+- Inadequate funding or team
+- Weak execution discipline
+
+**Realistic expectations:**
+- Velocity improvements: 2-4x over 20+ efforts (not 10x)
+- Learning compounds IF you consistently apply the framework
+- Quality improves IF you maintain discipline
+- Success still requires market validation, strong execution, and often luck
+
+---
+
 ## Integration Points
 
 ### **ATLAS (generic framework) + Company (specific context)**
@@ -1183,14 +1205,14 @@ Framework determined: AI3 phase, CP3, exact context loaded
 - ✅ Templates refined (guides better based on experience)
 
 **After 10 Efforts:**
-- ✅ Major velocity gain (50-60% faster than Effort 1)
+- ✅ Potential velocity gain (30-50% improvement with consistent application)
 - ✅ Knowledge compounding (templates evolved, tools built)
-- ✅ Strategic evolution (ATLAS_STEPS refined based on learnings)
+- ✅ Strategic evolution (steps refined based on learnings)
 
 **After 30 Efforts:**
-- ✅ Systematic excellence (quality maintained, speed maximized)
-- ✅ Ready to scale (hire team, they follow guides)
-- ✅ Company operating system (ATLAS is how work gets done)
+- ✅ Systematic execution (quality maintained, efficiency improved)
+- ✅ Scalable process (team can follow guides)
+- ✅ Company operating system (systematic approach embedded)
 
 ---
 
@@ -1297,7 +1319,7 @@ ATLAS v2.0 is built on these beliefs:
 
 **your company:** Building AI-native WebOps platform from $0 to $1M+ ARR
 
-**Reusable for:** Any company requiring systematic execution from zero to scale
+**Reusable for:** Companies that prioritize systematic planning and value disciplined execution
 
 **Proven patterns:** Based on MLE (multi-AI development) + IRIS2 (deterministic workflows)
 
@@ -1339,4 +1361,4 @@ ATLAS v2.0 is built on these beliefs:
 
 ---
 
-**ATLAS v2.0 is production-ready. Built for building billion-dollar companies.** 🚀
+**ATLAS v3.0 is ready for systematic company building.** Built for ambitious, systematic company building.

@@ -15,7 +15,7 @@
 **After this guide:**
 - ATLAS3 configured for your company
 - Ready to execute first substep
-- Can build to $1M+ ARR systematically
+- Provides structure for pursuing $1M+ ARR with systematic execution
 
 ---
 
@@ -293,7 +293,7 @@ Usher should:
 **Marketplace:**
 - Steps map to transaction milestones (Step 1: First 100 transactions)
 - Substeps are supply/demand initiatives
-- Liquidity achieved through systematic execution
+- Systematic execution increases the probability of achieving marketplace liquidity
 
 **your company pattern (Service → Platform):**
 - Part 1: Build tools (foundation)
@@ -330,9 +330,9 @@ Usher should:
 
 **Annual overhead:** ~160-200 hours on ATLAS itself
 
-**If ATLAS delivers 50-60% velocity improvement:** Saves 400-600 hours execution
+**If ATLAS delivers 30-50% velocity improvement with consistent application:** May save 300-500 hours execution
 
-**ROI: 3-4:1** (200 hours invested, 600 hours saved)
+**Potential ROI: 2-3:1** (200 hours invested, potential 400-500 hours saved with disciplined application)
 
 ---
 
