@@ -62,16 +62,16 @@ Current Strategy Status (from ATLAS_STEPS files):
 **PART 1: Foundation (Steps -1 through 2)**
 - STEP -1: Platform Setup ✅ COMPLETE (2025-12-10)
 - STEP 0: Build Core Tools
-  - STEP_0_1: Audit Engine ✅ COMPLETE (2025-12-15)
-  - STEP_0_2: Site Cloner 🔄 IN_PROGRESS (AI3 on CP3 of 5)
-  - STEP_0_3: Rebuild Engine Core ⏸️ PLANNED
-- STEP 1: Validate on Contractors
-  - STEP_1_1: First Contractor ⏸️ PLANNED
-  - STEP_1_2-1_10: Next 9 contractors ⏸️ PLANNED
+  - STEP_0_1: Feature A ✅ COMPLETE (2025-12-15)
+  - STEP_0_2: Feature B 🔄 IN_PROGRESS (AI3 on CP3 of 5)
+  - STEP_0_3: Feature C Core ⏸️ PLANNED
+- STEP 1: Validate on Customers
+  - STEP_1_1: First Customer ⏸️ PLANNED
+  - STEP_1_2-1_10: Next 9 customers ⏸️ PLANNED
 - STEP 2: Build Marketing Site ⏸️ PLANNED
 
 **PART 2: Scale (Steps 3-5)**
-- STEP 3: Scale Contractors (10 → 25) ⏸️ PLANNED
+- STEP 3: Scale Customers (10 → 25) ⏸️ PLANNED
 - STEP 4: Add Law Firm Vertical ⏸️ PLANNED
 - STEP 5: Launch Inspector SaaS ⏸️ PLANNED
 
@@ -81,12 +81,12 @@ Current Strategy Status (from ATLAS_STEPS files):
 **Overall progress:**
 - Steps complete: 2 of 10 (20%)
 - Substeps complete: 2 of 50+ (4%)
-- Current work: STEP_0_2 (Site Cloner, 60% done)
-- Next planned: STEP_0_3 (Rebuild Engine)
+- Current work: STEP_0_2 (Feature B, 60% done)
+- Next planned: STEP_0_3 (Feature C)
 
 **Recent learnings (last 5):**
 1. Multi-tenant architecture pays off (STEP_0_1, STEP_0_2)
-2. Cross-vertical testing critical (caught contractor assumptions)
+2. Cross-vertical testing critical (caught customer assumptions)
 3. Reusing infrastructure saves 30-40% setup time
 4. PageSpeed rate limits hit faster than expected
 5. Puppeteer patterns proven (use across tools)
@@ -113,16 +113,16 @@ Enter number (1-6):
 
 ### Step 3: Load Substep-Specific Context (If Option 1)
 
-**Human selects: "Refine STEP_0_3 (Rebuild Engine Core)"**
+**Human selects: "Refine STEP_0_3 (Feature C Core)"**
 
 **Usher loads additional context:**
 
 ```
 8. STEP_0_1 COMPLETION_SUMMARY (~800 lines, ~8K tokens, 8min)
-   Why: Audit Engine is related (both tools, might share patterns)
+   Why: Feature A is related (both tools, might share patterns)
 
 9. STEP_0_2 START_HERE.md (if exists - ~1,200 lines, ~12K tokens, 10min)
-   Why: Site Cloner is directly related (Rebuild Engine uses Cloner output)
+   Why: Feature B is directly related (Feature C uses Cloner output)
 
 10. STEP_0_3 current definition from steps/STEP_0.md (or relevant step file)
     Already loaded, re-read specific section (2min)
@@ -141,8 +141,8 @@ Running total: ~97K tokens (still under 100K)
 ```
 Current STEP_0_3 definition:
 
-#### STEP_0_3: Build Rebuild Engine Core
-**Target:** Vertical-agnostic engine + contractor template
+#### STEP_0_3: Build Feature C Core
+**Target:** Vertical-agnostic engine + customer template
 **Timeline:** 2 weeks
 **Focus:** Foundation for multi-vertical platform
 
@@ -150,17 +150,17 @@ Let's make this more specific. I'll ask questions to refine.
 
 ---
 
-Q1: What exactly is "Rebuild Engine Core"?
+Q1: What exactly is "Feature C Core"?
 
 Based on research:
-- Site Cloner (STEP_0_2) extracts content from sites
-- Rebuild Engine transforms extracted content into modern Next.js sites
+- Feature B (STEP_0_2) extracts content from sites
+- Feature C transforms extracted content into modern Next.js sites
 - "Core" means: Template system, component library, generation logic
 
 Should substep be:
-A) "Build template system (vertical-agnostic core + contractor template)"
-B) "Build generation engine (content → Next.js) + contractor template"
-C) "Build component library (universal) + template config system + contractor template"
+A) "Build template system (vertical-agnostic core + customer template)"
+B) "Build generation engine (content → Next.js) + customer template"
+C) "Build component library (universal) + template config system + customer template"
 
 [Human chooses or refines]
 
@@ -168,14 +168,14 @@ C) "Build component library (universal) + template config system + contractor te
 
 Q2: What are the specific deliverables?
 
-Current says: "Vertical-agnostic engine + contractor template"
+Current says: "Vertical-agnostic engine + customer template"
 
 More specific would be:
 "Deliverables:
 1. Universal component library (Button, Hero, Services, Contact, Footer - works for any vertical)
 2. Template configuration system (CLI tool: select vertical → applies vertical template)
-3. Contractor template (blue/orange colors, trust-focused copy, lead-gen CTAs)
-4. Generation engine (takes Site Cloner output + template → generates Next.js project)
+3. Customer template (blue/orange colors, trust-focused copy, lead-gen CTAs)
+4. Generation engine (takes Feature B output + template → generates Next.js project)
 5. Validation: Generated site builds without errors, matches design intent"
 
 Is this correct? What would you add/change?
@@ -190,9 +190,9 @@ Current: Generic
 
 More specific:
 "Success criteria:
-- Component library: 15-20 universal components (proven on Audit Engine, Site Cloner)
-- Template system: Can switch contractor ↔ law ↔ healthcare via config file
-- Contractor template: Tested on 3 contractor sites (HVAC, plumbing, electrical)
+- Component library: 15-20 universal components (proven on Feature A, Feature B)
+- Template system: Can switch customer ↔ law ↔ healthcare via config file
+- Customer template: Tested on 3 customer sites (HVAC, plumbing, electrical)
 - Generation engine: Takes Cloner JSON → produces Next.js project in <30 seconds
 - Output quality: Generated site Lighthouse 90+, WCAG AA, builds without errors
 - Multi-vertical proof: Same component library works for all 3 verticals"
@@ -210,10 +210,10 @@ Current: One substep (STEP_0_3)
 Could be split:
 - STEP_0_3_1: Build universal component library
 - STEP_0_3_2: Build template config system
-- STEP_0_3_3: Build contractor template + validate
+- STEP_0_3_3: Build customer template + validate
 
 Or stay as one:
-- STEP_0_3: All in one (component library + template system + contractor template)
+- STEP_0_3: All in one (component library + template system + customer template)
 
 Given 2 week estimate, is one substep manageable or should we split?
 
@@ -225,13 +225,13 @@ Q5: What risks should we call out?
 
 From STEP_0_1, STEP_0_2 learnings:
 - Template system complexity (could over-engineer - keep simple)
-- Contractor-specific assumptions (test universality early)
+- Customer-specific assumptions (test universality early)
 - Component library scope creep (limit to 15-20, not 50)
 
 Should document:
 "Risks:
 - Over-engineering template system (mitigation: start with 2 verticals, not 5)
-- Contractor bias in 'universal' components (mitigation: test on law firm mock in CP3)
+- Customer bias in 'universal' components (mitigation: test on law firm mock in CP3)
 - Scope creep on components (mitigation: hard cap at 20 components, defer extras)"
 
 Anything else?
@@ -248,64 +248,64 @@ Anything else?
 **Usher drafts update:**
 
 ```markdown
-#### STEP_0_3: Build Rebuild Engine Core
+#### STEP_0_3: Build Feature C Core
 
 **Status:** ⏸️ PLANNED
 **Timeline:** 2 weeks (estimated)
-**Focus:** Multi-vertical foundation (universal components + template system + contractor template)
+**Focus:** Multi-vertical foundation (universal components + template system + customer template)
 
 **Objective:**
-Build the core Rebuild Engine: universal component library (works for any vertical), template configuration system (select vertical → apply template), and contractor template (first vertical validation).
+Build the core Feature C: universal component library (works for any vertical), template configuration system (select vertical → apply template), and customer template (first vertical validation).
 
 **Deliverables:**
 1. **Universal Component Library** (15-20 components)
    - Button, Hero, Services, About, Contact, Footer, Card, Form, etc.
-   - Works for contractor, law, healthcare (vertical-agnostic)
+   - Works for customer, law, healthcare (vertical-agnostic)
    - Accessible (WCAG AA), performant (<2s), responsive
 
 2. **Template Configuration System** (CLI tool or config file)
-   - Input: Vertical selection (contractor / law / healthcare)
+   - Input: Vertical selection (customer / law / healthcare)
    - Output: Applies vertical-specific colors, copy, CTAs
    - Easily extensible (add new vertical = add config file)
 
-3. **Contractor Template** (first vertical)
+3. **Customer Template** (first vertical)
    - Colors: Blue/orange (trust-focused)
    - Copy: Lead generation emphasis ("Get more calls, more jobs")
    - CTAs: Phone click-to-call, contact forms
-   - Tested on: 3 contractor sites (HVAC, plumbing, electrical)
+   - Tested on: 3 customer sites (HVAC, plumbing, electrical)
 
 4. **Generation Engine** (content → Next.js)
-   - Input: Site Cloner output JSON (from STEP_0_2)
+   - Input: Feature B output JSON (from STEP_0_2)
    - Process: Component library + template config → Next.js project
    - Output: Deployable Next.js site (builds without errors)
    - Performance: <30 second generation time
 
 **Success Criteria:**
 - [ ] 15-20 universal components built and tested
-- [ ] Template config system works (switch contractor ↔ law ↔ healthcare)
-- [ ] Contractor template validated (tested on 3 contractor sites)
+- [ ] Template config system works (switch customer ↔ law ↔ healthcare)
+- [ ] Customer template validated (tested on 3 customer sites)
 - [ ] Generation engine works (Cloner output → Next.js project)
 - [ ] Output quality: Lighthouse 90+, WCAG AA, builds clean
 - [ ] Multi-vertical proof: Components work for all 3 verticals (tested with mock law/healthcare)
 
 **Could split into sub-substeps if needed:**
 - STEP_0_3_1: Component library
-- STEP_0_3_2: Template system + contractor template
+- STEP_0_3_2: Template system + customer template
 - STEP_0_3_3: Generation engine + validation
 
 **Decision:** Keep as one substep (2 weeks manageable, logical unit)
 
 **Risks:**
 - Template system over-engineering (mitigation: start simple, 2 verticals only)
-- Contractor assumptions in "universal" components (mitigation: test on law mock early)
+- Customer assumptions in "universal" components (mitigation: test on law mock early)
 - Scope creep (mitigation: hard cap 20 components, defer extras to future)
 
 **Dependencies:**
-- Requires: STEP_0_2 complete (Site Cloner provides input data format)
-- Enables: STEP_1_X (customer delivery uses Rebuild Engine)
+- Requires: STEP_0_2 complete (Feature B provides input data format)
+- Enables: STEP_1_X (customer delivery uses Feature C)
 
 **Hypotheses:**
-- H1: Universal components can serve contractor, law, healthcare (test in CP validation)
+- H1: Universal components can serve customer, law, healthcare (test in CP validation)
 - H2: Template config approach is flexible enough (vs hardcoded per vertical)
 
 **Updated:** 2025-12-11 (refined with Usher Mode 2)
@@ -331,14 +331,14 @@ Build the core Rebuild Engine: universal component library (works for any vertic
 **Usher adds to DECISION_LOG.md:**
 
 ```markdown
-## 2025-12-11: Refined STEP_0_3 Definition (Rebuild Engine)
+## 2025-12-11: Refined STEP_0_3 Definition (Feature C)
 
 **Context:** STEP_0_3 was vague ("Build rebuild engine core"). Before AI1 starts research, refined with human to make very specific.
 
 **Changes made:**
-- Added specific deliverables (4 distinct outputs: components, template system, contractor template, generation engine)
+- Added specific deliverables (4 distinct outputs: components, template system, customer template, generation engine)
 - Added measurable success criteria (15-20 components, Lighthouse 90+, multi-vertical validated)
-- Added risks (over-engineering, contractor bias, scope creep) with mitigations
+- Added risks (over-engineering, customer bias, scope creep) with mitigations
 - Clarified dependencies (needs STEP_0_2 Cloner output format)
 
 **Rationale:**
