@@ -156,8 +156,8 @@ You: Review/approve (15 minutes)
 **After 2 hours:** Operational (can execute)
 **After 1 week:** First substep complete
 **After 1 month:** 2-3 substeps complete, patterns emerging
-**After 3 months:** 6-10 substeps, 30-40% velocity improvement
-**After 6 months:** Part 1 complete, framework matured
+**After 3 months:** 6-10 substeps, noticeable efficiency gains
+**After 6 months:** Initial strategic milestones achieved, framework matured
 
 ---
 
