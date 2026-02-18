@@ -24,8 +24,8 @@ Execution unit within Step. One substep = one Effort.
 
 - **Naming:** STEP_X_Y (e.g., STEP_1_2)
 - **Size:** 1-4 weeks typically
-- **Example:** STEP_1_2: Build Site Cloner (2 weeks)
-- **Becomes:** One Effort (STEP_1_2_SITE_CLONER)
+- **Example:** STEP_1_2: Build Feature X (2 weeks)
+- **Becomes:** One Effort (STEP_1_2_FEATURE_X)
 
 ---
 
@@ -35,7 +35,7 @@ The work package that AI1/AI2/AI3 execute to accomplish a substep.
 - **Size:** 1-4 weeks (same as substep)
 - **Maps to:** One substep (1:1 relationship)
 - **Contains:** START_HERE, OUTLINE, guides, TODO_TRACKER, artifacts, COMPLETION_SUMMARY
-- **Naming:** STEP_X_Y_SHORTNAME (e.g., STEP_1_2_SITE_CLONER)
+- **Naming:** STEP_X_Y_SHORTNAME (e.g., STEP_1_2_FEATURE_X)
 
 ---
 
@@ -392,7 +392,7 @@ Progress Tracking:
 > "Currently executing Substep 1.2 (STEP_1_2)"
 
 **Referring to an Effort:**
-> "Effort STEP_1_2_SITE_CLONER is in progress"
+> "Effort STEP_1_2_FEATURE_X is in progress"
 
 **Referring to AI phase:**
 > "AI1 has completed research for STEP_1_2"
@@ -413,7 +413,7 @@ Progress Tracking:
 |------|----------|-------------|---------|
 | Step | Months | Human/AI2 | "Build Platform Foundation" |
 | Substep | Weeks | Human/AI2 | STEP_1_2 |
-| Effort | Weeks | AI1/AI2/AI3 | STEP_1_2_SITE_CLONER |
+| Effort | Weeks | AI1/AI2/AI3 | STEP_1_2_FEATURE_X |
 | Checkpoint | Hours-Days | AI2 plans, AI3 executes | CP0, CP1, CP2 |
 | START_HERE | N/A | AI1 | START_HERE.md |
 | Guide | N/A | AI2 | CP1_GUIDE.md |
