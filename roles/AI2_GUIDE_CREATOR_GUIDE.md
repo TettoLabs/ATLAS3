@@ -376,7 +376,7 @@ Research questions for CP0:
 2. Setup patterns:
    - How did previous Efforts set up infrastructure? (read STEP_1_1 setup)
    - What Vercel config is standard? (check vercel.json examples)
-   - What Supabase schema patterns? (check warmanswers-app or past Efforts)
+   - What database schema patterns? (check past Efforts or reference implementations)
 
 3. Environment configuration:
    - What environment variables needed? (API keys, database URLs)
@@ -393,8 +393,8 @@ Research questions for CP0:
 
 Research sources:
 - Previous Effort: /efforts/STEP_1_1_AUDIT_ENGINE/guides/CP0_GUIDE.md (if exists)
-- Existing projects: warmanswers-app setup patterns
-- Documentation: Vercel docs, Supabase docs, Next.js docs
+- Reference implementations: Previous projects or codebases with similar patterns
+- Documentation: Platform docs, database docs, framework docs
 - START_HERE.md: AI1's infrastructure recommendations
 
 Time: 1-2 hours research (find examples, document patterns, identify gotchas)
@@ -1618,9 +1618,9 @@ Total output: ~5,800 lines of planning documentation
 Research sources:
 - Puppeteer docs (puppeteer.dev)
 - Cheerio docs (cheerio.js.org)
-- Next.js generation patterns (GitHub examples)
+- Framework-specific patterns (GitHub examples, documentation)
 - Previous Effort: STEP_1_1 setup patterns
-- warmanswers-app: Supabase patterns
+- Reference implementations: Database patterns from similar projects
 
 Key decisions:
 - 5 CPs chosen (not 4 or 6) because scraping/extraction/generation are distinct phases
