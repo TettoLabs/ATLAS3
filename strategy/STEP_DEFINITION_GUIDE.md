@@ -125,64 +125,65 @@ What are we testing with this Step? What do we expect to learn?
 ## Example Step (Full Format)
 
 ```markdown
-## STEP 1: Acquire First 3 Paying Customers
+## STEP 1: Launch MVP and Acquire First 3 Customers
 
 ### Objective
-Close 3 paid contracts for website redesign + hosting, validating our go-to-market approach and service delivery model.
+Ship MVP with core features, acquire first 3 paying customers, and validate product-market fit assumptions.
 
 ### Why This Matters
 - Revenue validation (proves people will pay)
-- Service delivery learning (refine process before scaling)
-- Case study creation (testimonials for future sales)
-- Positioning refinement (discover what resonates)
+- Product validation (confirms features solve real problems)
+- Customer feedback (guides prioritization for future features)
+- Go-to-market validation (tests acquisition channels)
 
 ### Success Criteria
-- [ ] 3 contracts signed ($5K-$10K each)
-- [ ] 3 websites delivered and launched
-- [ ] 3 customers on monthly hosting/maintenance ($200-$500/mo each)
+- [ ] MVP shipped to production with 3 core features
+- [ ] 3 paying customers actively using the product
+- [ ] Usage data collected (engagement metrics, feature adoption)
 - [ ] Learnings documented about:
-  - What customers care most about
-  - Where our process broke down
-  - What we should systematize next
+  - What customers use most
+  - What features are underutilized
+  - What acquisition channels work
+  - Where product needs improvement
 
 ### Substeps
 
-#### STEP_1_1: Close First Customer
-- **Target:** 1 signed contract, site delivered
+#### STEP_1_1: Build and Ship MVP
+- **Target:** MVP live in production with 3 core features
 - **Timeline:** 3-4 weeks
-- **Focus:** Prove we can deliver end-to-end
+- **Focus:** Prove we can build and deploy
 
-#### STEP_1_2: Close Second Customer
-- **Target:** 1 signed contract, site delivered
-- **Timeline:** 2-3 weeks (faster with learnings)
-- **Focus:** Refine sales pitch and delivery process
-
-#### STEP_1_3: Close Third Customer
-- **Target:** 1 signed contract, site delivered
+#### STEP_1_2: Acquire First Customer
+- **Target:** 1 paying customer, actively using product
 - **Timeline:** 2-3 weeks
-- **Focus:** Systematize what's working
+- **Focus:** Validate acquisition funnel and onboarding
+
+#### STEP_1_3: Acquire Customers 2 and 3
+- **Target:** 2 more paying customers
+- **Timeline:** 2-3 weeks
+- **Focus:** Systematize what's working, identify patterns
 
 ### Dependencies
 - **Before starting:**
-  - your company brand defined (logo, positioning, site)
-  - Sales process documented
-  - Service delivery workflow established
+  - Product positioning defined
+  - Pricing model decided
+  - Acquisition channels identified
 
 - **Blocks:**
-  - Step 2 (building internal tools) - need customer insights first
+  - Step 2 (feature expansion) - need customer feedback first
 
 ### Hypotheses Being Tested
-1. **H1:** Local service businesses will pay $5K-$10K for professional redesign
-   - **Expected:** Yes, if we show compelling demo
-   - **Measurement:** Conversion rate from demo to contract
+1. **H1:** Customers will pay for [core value proposition]
+   - **Expected:** Yes, if onboarding is clear
+   - **Measurement:** Conversion rate from trial to paid
 
-2. **H2:** Proactive demo approach (we build first) beats traditional sales
-   - **Expected:** Yes, shows vs tells
-   - **Measurement:** Time to close, objection patterns
+2. **H2:** [Acquisition channel X] drives qualified users
+   - **Expected:** Yes, based on market research
+   - **Measurement:** Cost per acquisition, trial conversion rate
 
-3. **H3:** Post-launch hosting creates recurring revenue
-   - **Expected:** Yes, they want hands-off maintenance
-   - **Measurement:** % of customers choosing hosting package
+3. **H3:** Core feature set is sufficient for initial value
+   - **Expected:** Yes, users get value quickly
+   - **Measurement:** Time to first value, retention rate
 ```
 
 ---
@@ -275,19 +276,19 @@ STEP 2: Build company brand site (can happen in parallel)
 **Why bad:** This is a task, not a strategic outcome
 
 **Fix:**
-> "Deploy first customer site to production with <2sec load time"
+> "Deploy first customer implementation to production with performance targets met"
 ↑ Outcome-focused, meaningful
 
 ---
 
 ### ❌ Mistake 2: Vague Steps
 **Bad:**
-> "Improve website quality"
+> "Improve product quality"
 
 **Why bad:** What's "quality"? How do we know when done?
 
 **Fix:**
-> "Implement site evaluation checklist covering speed, mobile, SEO, and accessibility (tested on 10 sites)"
+> "Implement quality evaluation checklist covering performance, usability, and key metrics (validated across 10 test cases)"
 ↑ Concrete, measurable
 
 ---
