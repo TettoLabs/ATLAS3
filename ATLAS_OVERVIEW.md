@@ -213,7 +213,7 @@ No OUTLINE.md exists yet
 **Step 4: Create CP0_GUIDE.md (1 hour)**
 - Transform research into guide
 - Include: Pre-flight (what to check first), Tasks (exact steps), Outputs (what should exist), Success criteria, Update TODO_TRACKER
-- Reference sources (based on warmanswers-app setup, Vercel docs section X)
+- Reference sources (based on previous projects, platform documentation)
 - Make it so detailed AI3 executes mechanically
 
 **Step 5: Research CP1 Deeply (2-4 hours)**
@@ -295,7 +295,7 @@ No OUTLINE.md exists yet
 AI2 is **50% research, 50% guide creation**:
 - Research each CP individually (what does CP0 need? research. CP1? research.)
 - Create guides informed by research (not generic templates)
-- Guides reference sources ("Based on Vercel docs, warmanswers-app patterns")
+- Guides reference sources ("Based on platform docs, reference implementations")
 
 **AI2 is a research role** (not just templating). Research makes guides precise.
 
@@ -724,7 +724,7 @@ Read TODO_TRACKER.md, find first PENDING CP
 ### CP0: Infrastructure Setup ✅ COMPLETE
 **Completed:** 2025-12-16 14:30
 **Duration:** 4.2 hours (estimated: 4h)
-**Notes:** Vercel + Supabase setup smooth, copied from warmanswers-app patterns
+**Notes:** Platform + database setup smooth, copied from previous project patterns
 
 ### CP1: Core Cloning Logic ✅ COMPLETE
 **Completed:** 2025-12-17 16:00
@@ -960,7 +960,7 @@ Detailed:
 AI3 executes Effort
   ↓ Discovers patterns, issues, solutions
 AI3 documents in COMPLETION_SUMMARY
-  ↓ "Supabase RLS patterns from warmanswers work great - copy for all future"
+  ↓ "Database security patterns from previous project work great - copy for all future"
 Human reads COMPLETION_SUMMARY
   ↓ Extracts strategic learnings
 Human updates LEARNINGS_LOG
