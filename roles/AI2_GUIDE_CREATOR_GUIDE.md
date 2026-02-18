@@ -296,7 +296,7 @@ Typical counts:
 ### CP4: Testing & Deployment (AI3, 1 day)
 **Goal:** Validate cloning works across verticals, deploy to production
 **Key tasks:** Test on contractor/law/healthcare sites, performance validation, deploy
-**Output:** cloner.10xbuild.com live and validated
+**Output:** tool.yourdomain.com live and validated
 
 ---
 
@@ -330,7 +330,7 @@ Typical counts:
 - Cross-vertical testing (clone 10 diverse sites: contractor, law, healthcare, restaurant, etc.)
 - Performance testing (cloning completes in <5 min per site)
 - Output validation (generated site matches original visually)
-- Deployment testing (cloner.10xbuild.com works end-to-end)
+- Deployment testing (tool.yourdomain.com works end-to-end)
 
 ---
 
@@ -516,7 +516,7 @@ Initialize Site Cloner Next.js application in monorepo structure.
 **How:**
 ```bash
 # 1. Navigate to monorepo root
-cd /path/to/10xbuild-monorepo
+cd /path/to/your-monorepo
 
 # 2. Create app directory
 mkdir -p apps/site-cloner
@@ -620,14 +620,14 @@ vercel
 
 # Prompts:
 # - Set up and deploy? Yes
-# - Which scope? your company team
+# - Which scope? [your-team]
 # - Link to existing project? No (create new)
 # - Project name? site-cloner
 # - Directory? apps/site-cloner
 # - Override settings? No
 
 # Option B: Vercel Dashboard (manual)
-# 1. Visit vercel.com/dashboard/10xbuild (team)
+# 1. Visit vercel.com/dashboard/[your-team] (team)
 # 2. Click "Add New Project"
 # 3. Import git repository
 # 4. Configure:
@@ -648,7 +648,7 @@ vercel ls
 
 # Note deployment URL
 # Should be: site-cloner-[hash].vercel.app
-# Custom domain: cloner.10xbuild.com (configure after MVP)
+# Custom domain: tool.yourdomain.com (configure after MVP)
 ```
 
 **Output:**
@@ -672,7 +672,7 @@ vercel ls
 Reuse Supabase project from STEP_1_1, add cloner-specific tables.
 
 **Context:**
-- Supabase project: "10xbuild-platform" (created in STEP_1_1)
+- Supabase project: "[platform-name]" (created in STEP_1_1)
 - Existing tables: audits, customers (from Audit Engine)
 - Adding: cloned_sites, assets, site_metadata
 
@@ -691,7 +691,7 @@ touch migrations/2025-12-16_add_cloner_tables.sql
 
 # 3. Write migration
 cat > migrations/2025-12-16_add_cloner_tables.sql << 'EOF'
--- Site Cloner Tables for your company Platform
+-- Site Cloner Tables for [YourCompany] Platform
 
 -- Cloned sites table
 CREATE TABLE cloned_sites (
@@ -921,7 +921,7 @@ Create README documenting setup for future developers.
 **How:**
 ```bash
 cat > apps/site-cloner/README.md << 'EOF'
-# Site Cloner - your company Tool
+# Site Cloner - [YourCompany] Tool
 
 ## Overview
 Universal website cloning tool. Scrapes any site, extracts content, generates Next.js rebuild.
@@ -940,7 +940,7 @@ npm install
 
 # Configure environment
 cp .env.example .env.local
-# Fill in Supabase credentials (from 10xbuild-platform project)
+# Fill in Supabase credentials (from [platform-name] project)
 
 # Run development server
 npm run dev
@@ -969,7 +969,7 @@ Migration: migrations/2025-12-16_add_cloner_tables.sql
 Auto-deploys via Vercel on push to main branch.
 
 Preview: site-cloner-[hash].vercel.app
-Production: cloner.10xbuild.com (after launch)
+Production: tool.yourdomain.com (after launch)
 
 ## Project Structure
 
@@ -980,7 +980,7 @@ Production: cloner.10xbuild.com (after launch)
 
 ## Support
 
-Part of your company platform.
+Part of [YourCompany] platform.
 Built with ATLAS v2.0.
 EOF
 
@@ -1025,13 +1025,13 @@ cat > /ATLAS3/efforts/STEP_1_2_SITE_CLONER/artifacts/CP0_setup_notes.md << 'EOF'
 
 **Vercel:**
 - Project: site-cloner
-- Team: your company
+- Team: [your-team]
 - Preview URL: site-cloner-abc123.vercel.app
 - Auto-deploy: ✅ Enabled
-- Custom domain: cloner.10xbuild.com (not configured yet - will do in CP4)
+- Custom domain: tool.yourdomain.com (not configured yet - will do in CP4)
 
 **Supabase:**
-- Project: 10xbuild-platform (reused from STEP_1_1) ✅
+- Project: [platform-name] (reused from STEP_1_1) ✅
 - New tables: cloned_sites, assets, site_metadata
 - RLS: Enabled on all tables
 - Connection: ✅ Verified (health check API works)
@@ -1051,11 +1051,11 @@ cat > /ATLAS3/efforts/STEP_1_2_SITE_CLONER/artifacts/CP0_setup_notes.md << 'EOF'
 ## Credentials & Access
 
 **Vercel:**
-- Team: your company
-- Project URL: vercel.com/10xbuild/site-cloner
+- Team: [your-team]
+- Project URL: vercel.com/[your-team]/site-cloner
 
 **Supabase:**
-- Project: 10xbuild-platform (shared with Audit Engine)
+- Project: [platform-name] (shared with Audit Engine)
 - Dashboard: app.supabase.com/project/[project-id]
 - Database URL: [from .env.local]
 
@@ -1164,7 +1164,7 @@ git push
 **Output:**
 - Git branch: effort/STEP_1_2_SITE_CLONER
 - Vercel project: site-cloner
-- Database: 3 new tables in 10xbuild-platform
+- Database: 3 new tables in [platform-name]
 - Preview URL: site-cloner-abc123.vercel.app
 
 **Next:** CP1 (Site Scraping Engine)
@@ -1334,7 +1334,7 @@ Built to enable proactive demos (clone prospect's site, rebuild better, show the
 - Clone 10 diverse sites (contractor, law, healthcare, restaurant, etc.)
 - Validate output matches original (visual comparison)
 - Performance test (<5 min per clone)
-- Deploy to production (cloner.10xbuild.com)
+- Deploy to production (tool.yourdomain.com)
 
 ---
 
@@ -1470,7 +1470,7 @@ None currently (Effort hasn't started execution).
 
 Build universal website cloning tool that scrapes any SMB site (contractor, law, healthcare) and generates equivalent Next.js project.
 
-Enables your company's proactive demo wedge: Clone prospect's site, rebuild better, show them in meeting.
+Enables [YourCompany]'s proactive demo wedge: Clone prospect's site, rebuild better, show them in meeting.
 
 Part of platform foundation (STEP 1: Build Platform Tools).
 
@@ -1479,7 +1479,7 @@ Part of platform foundation (STEP 1: Build Platform Tools).
 ## Goals
 
 **Primary:**
-Build working site cloner deployed at cloner.10xbuild.com
+Build working site cloner deployed at tool.yourdomain.com
 
 **Secondary:**
 - Prove tool works across verticals (contractor, law, healthcare)
@@ -1495,7 +1495,7 @@ Build working site cloner deployed at cloner.10xbuild.com
 - [ ] Visual fidelity 80%+ (looks like original)
 - [ ] Works across 3 verticals (contractor, law, healthcare tested)
 - [ ] Performance: <5 min per clone
-- [ ] Deployed: cloner.10xbuild.com
+- [ ] Deployed: tool.yourdomain.com
 - [ ] Multi-tenant architecture (stores clones in database)
 
 ---
@@ -1527,7 +1527,7 @@ See /guides/*.md for detailed instructions.
 
 **Required before starting:**
 - STEP_1_1 complete (Supabase infrastructure exists)
-- your company tech stack established (Next.js, Vercel patterns)
+- [YourCompany] tech stack established (Next.js, Vercel patterns)
 
 **Blocks:**
 - STEP_1_3 (Rebuild Engine) - may reuse content extraction patterns from this Effort
