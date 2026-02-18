@@ -90,92 +90,92 @@ Loaded on-demand based on questions asked
 
 ---
 
-### STEP 0: Build Core Tools (IN_PROGRESS - 2 of 3 complete)
+### STEP 0: Build Core Platform (IN_PROGRESS - 2 of 3 complete)
 
-#### STEP_0_1: Build Audit Engine ✅ COMPLETE
+#### STEP_0_1: Build Core Feature A ✅ COMPLETE
 **Completed:** 2025-12-15
 **Duration:** 7 days
-**Outcome:** Tool deployed and validated across customer segments
-**Metrics:** 47 audits run in first week, 12 leads captured
-**Learnings:** Multi-tenant architecture validated, PageSpeed rate limits hit (upgraded to paid)
+**Outcome:** Feature deployed and validated with initial users
+**Metrics:** 47 uses in first week, 12 qualified leads
+**Learnings:** Architecture patterns validated, API rate limits encountered (upgraded tier)
 
-#### STEP_0_2: Build Site Cloner 🔄 IN_PROGRESS
+#### STEP_0_2: Build Core Feature B 🔄 IN_PROGRESS
 **Started:** 2025-12-16
 **Progress:** CP3 of 5 (60% complete)
-**Current:** AI3 executing CP3 (Site Generation)
+**Current:** AI3 executing CP3 (Implementation Phase)
 **Est. completion:** 2025-12-20 (2 days remaining)
-**Details:** efforts/STEP_0_2_SITE_CLONER/TODO_TRACKER.md
+**Details:** efforts/STEP_0_2_FEATURE_B/TODO_TRACKER.md
 
-#### STEP_0_3: Build Rebuild Engine Core ⏸️ PLANNED
+#### STEP_0_3: Build Core Feature C ⏸️ PLANNED
 **Timeline:** 2 weeks (after STEP_0_2)
-**Waiting on:** STEP_0_2 completion (needs Cloner output format)
+**Waiting on:** STEP_0_2 completion (integration dependency)
 
 ---
 
-### STEP 1: Validate on Contractors (PLANNED - 0 of 10 complete)
+### STEP 1: Customer Validation (PLANNED - 0 of 3 complete)
 
-#### STEP_1_1: First Contractor ⏸️ PLANNED
+#### STEP_1_1: First Paying Customer ⏸️ PLANNED
 **Timeline:** 1 week (after STEP_0_3)
-**Deliverable:** First customer site using full Rebuild Engine
+**Deliverable:** First customer successfully onboarded and using platform
 
-#### STEP_1_2 through STEP_1_10: Next 9 Contractors ⏸️ PLANNED
-**Timeline:** 6-8 weeks total (faster with patterns)
-**Purpose:** Validate contractor template at scale
+#### STEP_1_2 and STEP_1_3: Next Customers ⏸️ PLANNED
+**Timeline:** 3-4 weeks total (faster with learnings)
+**Purpose:** Validate onboarding and product value
 
 ---
 
 ### STEP 2: Build Marketing Site ⏸️ PLANNED
 **Timeline:** 1 week
-**Deliverable:** Company website showcasing first 3 customers
+**Deliverable:** Company website with product positioning
 
 ---
 
-## PART 2: SCALE (Steps 3-5) - All PLANNED
+## Growth Phase (Steps 3-5) - All PLANNED
 
-### STEP 3: Scale Contractors (10 → 25) ⏸️
+### STEP 3: Scale to 25 Customers ⏸️
 **Timeline:** 8-12 weeks
-**Purpose:** Prove contractor vertical scales
+**Purpose:** Prove product scales and acquisition works
 
-### STEP 4: Add Law Firm Vertical ⏸️
+### STEP 4: Add Feature Set B ⏸️
 **Timeline:** 4-6 weeks
-**Purpose:** Prove engine generalizes (multi-vertical validation)
+**Purpose:** Expand product capabilities based on customer feedback
 
-### STEP 5: Launch Inspector SaaS ⏸️
+### STEP 5: Launch Advanced Features ⏸️
 **Timeline:** 3-4 weeks
-**Purpose:** Productize Audit Engine (first SaaS product)
+**Purpose:** Add premium tier features
 
 ---
 
-## PART 3: PLATFORM (Steps 6-10) - Loosely Defined
+## Future Phases (Steps 6+) - To Be Defined
 
-Steps 6-10 will be defined after Part 2 learnings.
+Steps 6+ will be defined based on initial customer learnings.
 
 Likely areas:
-- Add healthcare vertical
-- Platform features (multi-site management, API, white-label)
-- Scale to 50-100 customers across all verticals
+- Expand to additional customer segments
+- Platform features (API, integrations, advanced capabilities)
+- Scale to 50-100 customers
 
 ---
 
 ## Summary
 
 **Completed:**
-- 1 Step fully complete (STEP -1)
-- 2 substeps complete (Platform Setup, Audit Engine)
+- 1 Step fully complete (STEP 0)
+- 2 substeps complete (Platform Setup, Core Feature A)
 - ~4% of total substeps
 
 **In Progress:**
-- 1 Effort active (Site Cloner, 60% done)
+- 1 Effort active (Feature B, 60% done)
 
 **Next Up:**
-- Complete Site Cloner (2 days)
-- Start Rebuild Engine (2 weeks)
-- First customer delivery (1 week after that)
+- Complete Feature B (2 days)
+- Start Feature C (2 weeks)
+- First customer onboarding (1 week after that)
 
 **Trajectory:**
-- On track for Part 1 completion by Month 3
+- On track for initial phase completion by Month 3
 - On track for first customers by Month 4
-- Platform foundation solid (tools working, patterns proven)
+- Platform foundation solid (core features working, patterns proven)
 ```
 
 ---
@@ -324,7 +324,7 @@ AI1 research phase context loading:
 **Human can drill into completed Efforts:**
 
 ```
-"Show me details on STEP_0_1 (Audit Engine)"
+"Show me details on STEP_0_1 (Feature A)"
 
 Usher loads:
 - efforts/STEP_0_1_AUDIT_ENGINE/COMPLETION_SUMMARY.md
