@@ -172,7 +172,7 @@ BUT: "Multi-tenant audit tool with PageSpeed API integration, scoring A-F, PDF e
 **CP3: Testing & Deployment** (~1 day)
 - Test across 10 diverse sites
 - Performance validation
-- Deploy to audit.10xbuild.com
+- Deploy to tool.yourdomain.com
 - Documentation
 
 **NOTE:** AI2 may adjust to 3 CPs (combine CP1-2) or 7 CPs (split further). This is guidance.
@@ -410,7 +410,7 @@ git push -u origin effort/STEP_1_2_AUDIT_ENGINE
 
 - Git branch created: effort/STEP_1_2_AUDIT_ENGINE
 - Vercel project: audit-engine
-- Supabase project: 10xbuild-platform
+- Supabase project: [platform-name]
 - Database schema deployed
 - .env.local configured
 - Initial deployment successful (test URL works)
@@ -716,7 +716,7 @@ CP0 (Infrastructure Setup) of STEP_1_2_AUDIT_ENGINE complete.
 Completed:
 - Git branch: effort/STEP_1_2_AUDIT_ENGINE created
 - Vercel project: audit-engine initialized
-- Supabase: 10xbuild-platform with 3 tables
+- Supabase: [platform-name] with 3 tables
 - Environment configured (.env.local + Vercel vars)
 - Deployment validated (test URL works)
 
@@ -792,7 +792,7 @@ gh pr create --base main --head staging \
 
 **Deliverable:** Audit Engine V0.5
 - Multi-tenant website analysis tool
-- URL: audit.10xbuild.com
+- URL: tool.yourdomain.com
 - Analyzes: Performance, SEO, mobile, accessibility, security
 - Output: Professional PDF report via email
 - Verticals tested: Contractors, law firms, healthcare (universal)
@@ -876,7 +876,7 @@ gh pr create --base main --head staging \
 
 **Reusable for future Efforts:**
 - Vercel team account: "your company"
-- Supabase project: "10xbuild-platform" (can add tables for new tools)
+- Supabase project: "[platform-name]" (can add tables for new tools)
 - Multi-tenant patterns: RLS policies, customer isolation
 - PDF generation: Puppeteer setup, memory config, templates
 - Email delivery: Resend integration, template system
@@ -900,7 +900,7 @@ Mark substep complete:
 #### STEP_1_2: Build Audit Engine
 **Status:** ✅ COMPLETE
 **Completed:** 2025-12-20
-**Outcome:** audit.10xbuild.com live, tested across 3 verticals
+**Outcome:** tool.yourdomain.com live, tested across 3 verticals
 **Learnings:** See efforts/STEP_1_2_AUDIT_ENGINE/COMPLETION_SUMMARY.md
 ```
 
@@ -1017,7 +1017,7 @@ Next: "Continue ATLAS on STEP_1_2" (will auto-load CP0 for AI3)
 #### STEP_1_1: Audit Engine
 **Status:** ✅ COMPLETE
 **Completed:** 2025-12-15
-**Outcome:** audit.10xbuild.com live
+**Outcome:** tool.yourdomain.com live
 
 #### STEP_1_2: Site Cloner
 **Status:** 🔄 IN_PROGRESS (AI3 on CP3 of 5)
