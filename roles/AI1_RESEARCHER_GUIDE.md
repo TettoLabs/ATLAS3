@@ -174,7 +174,7 @@ Level 2 - Medium (needs moderate research):
   → 50% research (validate approach, find patterns, identify gotchas)
 
 Level 3 - Specific (needs validation):
-  "Build audit engine: PageSpeed API, Supabase multi-tenant, PDF via Puppeteer, A-F scoring, email delivery, works for contractor/law/healthcare"
+  "Build audit engine: API integration, multi-tenant database, PDF generation, structured scoring, email delivery, works across customer segments"
   → 20% research (validate this approach, check for issues, confirm feasibility)
 
 Your research depth adapts to specificity.
@@ -380,7 +380,7 @@ BUT: "Multi-tenant website audit tool with:
 - Multi-vertical: Works for contractor, law, healthcare sites (universal, not vertical-specific)
 - Architecture: Next.js + Supabase with RLS (multi-tenant from day 1)
 - Performance: <2 min analysis time per site
-- Deployment: audit.10xbuild.com (subdomain)
+- Deployment: tool.yourdomain.com (subdomain)
 - Lead capture: Email collection for sales follow-up"
 
 This specificity enables AI2 to create precise guides.
@@ -455,7 +455,7 @@ Document both options. AI2 decides final split.
 **CP3: Testing & Deployment** (~1 day)
 - Cross-vertical testing (contractor, law, healthcare)
 - Performance validation (<2 min analysis)
-- Production deployment (audit.10xbuild.com)
+- Production deployment (tool.yourdomain.com)
 
 **AI2 may adjust:** Could be 3 CPs (combine CP1-2) or 5 CPs (split CP1 or CP2 further). This is guidance, not prescription.
 
@@ -602,12 +602,12 @@ BUT: "Multi-tenant audit tool that:
 - Accepts any website URL (http/https, validates format)
 - Analyzes 5 metrics (Performance via PageSpeed API, SEO via meta tag scan, Mobile via viewport/touch target analysis, Accessibility via WCAG automated scan, Security via header check)
 - Scores each metric 0-100, combines into weighted A-F letter grade (weights: 40% perf, 25% SEO, 20% mobile, 10% a11y, 5% security)
-- Generates professional 1-2 page PDF report (branded with your company logo, includes specific recommendations)
+- Generates professional 1-2 page PDF report (branded with [YourCompany] logo, includes specific recommendations)
 - Delivers report via email (Resend integration, <30 second delivery)
 - Works universally (tested on contractor, law firm, healthcare sites)
 - Performance: Completes analysis in <2 minutes (target: <90 seconds)
 - Architecture: Multi-tenant Supabase (RLS for data isolation, supports future SaaS)
-- Deployment: audit.10xbuild.com subdomain
+- Deployment: tool.yourdomain.com subdomain
 - Lead capture: Email collection, stored for sales follow-up
 - Error handling: Graceful failures (site unreachable, PageSpeed timeout, PDF generation failure)"
 
@@ -840,7 +840,7 @@ Previous substep's AI3 informs your research:
 > "Implementation outcome: Build audit tool that works well"
 
 **Good START_HERE:**
-> "Implementation outcome: Multi-tenant audit tool analyzing 5 metrics (performance, SEO, mobile, accessibility, security), scoring A-F, generating PDF via Puppeteer, email via Resend, <2min analysis, works for contractor/law/healthcare, deployed at audit.10xbuild.com"
+> "Implementation outcome: Multi-tenant audit tool analyzing 5 metrics (performance, SEO, mobile, accessibility, security), scoring A-F, generating PDF reports, email delivery, <2min analysis, works across customer segments, deployed to production"
 
 **Specificity is your job.** Turn vague into concrete.
 
