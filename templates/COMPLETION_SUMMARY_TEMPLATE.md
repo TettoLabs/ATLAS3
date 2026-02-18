@@ -160,7 +160,7 @@ This template defines COMPLETION_SUMMARY.md (your final deliverable for the Effo
 **Example:**
 
 ✅ **Reused Supabase instance from STEP_1_1**
-- **What:** Shared database project (10xbuild-platform) instead of creating new
+- **What:** Shared database project ([platform-name]) instead of creating new
 - **Why it worked:** Saved 2 hours setup, RLS patterns already proven, cost $0 vs $25/mo
 - **Evidence:** Setup completed in 4h vs estimated 6h, zero Supabase issues
 - **For future:** Always check if infrastructure exists before creating new (default to reuse)
