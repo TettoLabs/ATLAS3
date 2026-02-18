@@ -123,7 +123,7 @@ Human: "Continue ATLAS on STEP_1_2" (framework auto-detects no START_HERE → AI
 
 **Example:**
 NOT: "Build audit tool"
-BUT: "Multi-tenant audit tool with PageSpeed API integration, scoring A-F, PDF export, email delivery, works for contractor/law/healthcare sites, <2min analysis time"
+BUT: "Multi-tenant audit tool with API integration, scoring A-F, PDF export, email delivery, works across customer segments, <2min analysis time"
 
 ---
 
@@ -162,7 +162,7 @@ BUT: "Multi-tenant audit tool with PageSpeed API integration, scoring A-F, PDF e
 **CP1: Core Analysis Engine** (~2 days)
 - PageSpeed API integration
 - Scoring algorithm (metrics → A-F grade)
-- Multi-vertical support (test on contractor/law/healthcare)
+- Multi-segment support (test across customer types)
 
 **CP2: Report Generation** (~2 days)
 - Puppeteer PDF rendering
