@@ -263,7 +263,7 @@ Typical counts:
 
 **In OUTLINE.md:**
 ```markdown
-# Outline - STEP_1_2 Site Cloner
+# Outline - STEP_1_2 Payment System
 
 **Effort:** Build universal site cloning tool
 **Total Checkpoints:** 5 (AI2 decision)
@@ -412,7 +412,7 @@ Time: 1-2 hours research (find examples, document patterns, identify gotchas)
 
 **Checkpoint:** CP0
 **Role:** AI3 (Implementer)
-**Goal:** Initialize all technical infrastructure for Site Cloner
+**Goal:** Initialize all technical infrastructure for Payment System
 **Duration:** 4 hours (estimated)
 **Type:** Setup/Initialization (NOT research - research was AI1's job)
 
@@ -422,8 +422,8 @@ Time: 1-2 hours research (find examples, document patterns, identify gotchas)
 
 CP0 is ALWAYS infrastructure and environment setup.
 
-For Site Cloner:
-- Reuse existing Vercel team + Supabase project (from STEP_1_1 Audit Engine)
+For Payment System:
+- Reuse existing Vercel team + Supabase project (from STEP_1_1 User Dashboard)
 - Add cloner-specific tables (cloned_sites, assets, metadata)
 - Create new Next.js app in monorepo (apps/site-cloner/)
 - Configure environment for Puppeteer (headless Chrome)
@@ -507,7 +507,7 @@ git status
 ### Task 2: Create Next.js App in Monorepo (30 min)
 
 **What:**
-Initialize Site Cloner Next.js application in monorepo structure.
+Initialize Payment System Next.js application in monorepo structure.
 
 **Context:**
 - Reusing monorepo from STEP_1_1 (audit engine exists at apps/audit-engine/)
@@ -673,7 +673,7 @@ Reuse Supabase project from STEP_1_1, add cloner-specific tables.
 
 **Context:**
 - Supabase project: "[platform-name]" (created in STEP_1_1)
-- Existing tables: audits, customers (from Audit Engine)
+- Existing tables: audits, customers (from User Dashboard)
 - Adding: cloned_sites, assets, site_metadata
 
 **How:**
@@ -691,7 +691,7 @@ touch migrations/2025-12-16_add_cloner_tables.sql
 
 # 3. Write migration
 cat > migrations/2025-12-16_add_cloner_tables.sql << 'EOF'
--- Site Cloner Tables for [YourCompany] Platform
+-- Payment System Tables for [YourCompany] Platform
 
 -- Cloned sites table
 CREATE TABLE cloned_sites (
@@ -743,7 +743,7 @@ CREATE POLICY "Public read assets" ON assets FOR SELECT USING (true);
 CREATE POLICY "Public read site_metadata" ON site_metadata FOR SELECT USING (true);
 
 -- Comments for documentation
-COMMENT ON TABLE cloned_sites IS 'Websites cloned by Site Cloner tool';
+COMMENT ON TABLE cloned_sites IS 'Websites cloned by Payment System tool';
 COMMENT ON TABLE assets IS 'Assets (images, CSS, JS) from cloned sites';
 COMMENT ON TABLE site_metadata IS 'Extracted content and metadata from cloned sites';
 EOF
@@ -921,7 +921,7 @@ Create README documenting setup for future developers.
 **How:**
 ```bash
 cat > apps/site-cloner/README.md << 'EOF'
-# Site Cloner - [YourCompany] Tool
+# Payment System - [YourCompany] Tool
 
 ## Overview
 Universal website cloning tool. Scrapes any site, extracts content, generates Next.js rebuild.
@@ -929,7 +929,7 @@ Universal website cloning tool. Scrapes any site, extracts content, generates Ne
 ## Tech Stack
 - Next.js 15 (App Router)
 - Puppeteer (site scraping)
-- Supabase (database - shared with Audit Engine)
+- Supabase (database - shared with User Dashboard)
 - Vercel (hosting)
 
 ## Getting Started
@@ -957,7 +957,7 @@ npm run build
 
 See \`.env.example\` for required variables.
 
-All Supabase credentials are shared with Audit Engine (same project).
+All Supabase credentials are shared with User Dashboard (same project).
 
 ## Database
 
@@ -1003,7 +1003,7 @@ Document what was set up (for reference and next CPs).
 **How:**
 ```bash
 cat > /ATLAS3/efforts/STEP_1_2_SITE_CLONER/artifacts/CP0_setup_notes.md << 'EOF'
-# CP0 Setup Notes - Site Cloner
+# CP0 Setup Notes - Payment System
 
 **Completed:** 2025-12-16
 **Duration:** 4.2 hours (estimated: 4h)
@@ -1055,7 +1055,7 @@ cat > /ATLAS3/efforts/STEP_1_2_SITE_CLONER/artifacts/CP0_setup_notes.md << 'EOF'
 - Project URL: vercel.com/[your-team]/site-cloner
 
 **Supabase:**
-- Project: [platform-name] (shared with Audit Engine)
+- Project: [platform-name] (shared with User Dashboard)
 - Dashboard: app.supabase.com/project/[project-id]
 - Database URL: [from .env.local]
 
@@ -1267,7 +1267,7 @@ EOF
 
 **Contents:**
 ```markdown
-# Overview Guide - STEP_1_2 Site Cloner
+# Overview Guide - STEP_1_2 Payment System
 
 **Quick-Start for AI3**
 
@@ -1360,7 +1360,7 @@ Built to enable proactive demos (clone prospect's site, rebuild better, show the
 
 **Initial state (all PENDING):**
 ```markdown
-# TODO Tracker - STEP_1_2 Site Cloner
+# TODO Tracker - STEP_1_2 Payment System
 
 **Effort:** STEP_1_2_SITE_CLONER
 **Status:** PLANNED (awaiting AI3 execution)
@@ -1484,7 +1484,7 @@ Build working site cloner deployed at tool.yourdomain.com
 **Secondary:**
 - Prove tool works across verticals (contractor, law, healthcare)
 - Validate cloning speed (<5 min per site)
-- Establish patterns for content extraction (reusable in Rebuild Engine)
+- Establish patterns for content extraction (reusable in Notification Service)
 
 ---
 
@@ -1530,7 +1530,7 @@ See /guides/*.md for detailed instructions.
 - [YourCompany] tech stack established (Next.js, Vercel patterns)
 
 **Blocks:**
-- STEP_1_3 (Rebuild Engine) - may reuse content extraction patterns from this Effort
+- STEP_1_3 (Notification Service) - may reuse content extraction patterns from this Effort
 
 ---
 
@@ -1751,7 +1751,7 @@ export async function scrapeSite(url: string) {
 **Based on:**
 - Puppeteer docs: puppeteer.dev/api/puppeteer.launch
 - Example: github.com/[repo]/scraper-example (reference implementation)
-- STEP_1_1 Audit Engine: Used Puppeteer for PDF (similar patterns)
+- STEP_1_1 User Dashboard: Used Puppeteer for PDF (similar patterns)
 
 **Gotchas:**
 - Memory: Default 512MB insufficient, need 1GB (set in vercel.json)
