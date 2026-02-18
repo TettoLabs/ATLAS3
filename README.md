@@ -21,6 +21,16 @@ ATLAS is a **three-phase AI orchestration system** that transforms strategic vis
 
 ---
 
+## Technology Stack (Examples)
+
+**Examples in this framework use:** Next.js + Vercel + Supabase
+
+The framework structure (AI1→AI2→AI3 phases, checkpoints, progress tracking) is **technology-agnostic**. The orchestration system works with any tech stack - Python, Go, mobile, desktop, or any other platform. Examples show web development patterns, but adapt the implementation details to your stack while keeping the framework workflow intact.
+
+See [ONBOARDING.md](./ONBOARDING.md) for guidance on adapting to your technology choices.
+
+---
+
 ## When to Use ATLAS
 
 **Perfect for:**
@@ -111,7 +121,7 @@ ATLAS3/
 │   ├── STEP_DEFINITION_GUIDE.md       # How to write steps
 │   ├── steps/                         # Individual step files
 │   │   ├── STEP_TEMPLATE.md           # Template
-│   │   └── (STEP_1.md, STEP_2.md created by HOD)
+│   │   └── (STEP_1.md, STEP_2.md created during setup)
 │   ├── ATLAS_ASSUMPTIONS.md           # Template
 │   ├── LEARNINGS_LOG.md               # Template
 │   └── DECISION_LOG.md                # Template
@@ -242,11 +252,7 @@ ATLAS v3.0 embodies:
 
 ## Built For
 
-**your company:** AI-native WebOps platform (contractors → law → healthcare → all SMBs)
-
-**Reusable for:** Companies that benefit from systematic planning and execution discipline
-
-**Proven approach:** Based on MLE (project orchestration) and IRIS2 (deterministic workflows)
+Companies that benefit from systematic planning and execution discipline, particularly those building complex software products with evolving requirements.
 
 ---
 
