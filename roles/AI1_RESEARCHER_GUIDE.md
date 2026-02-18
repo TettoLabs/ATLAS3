@@ -477,7 +477,7 @@ Document both options. AI2 decides final split.
 
 **Creating CP0_GUIDE (Setup):**
 - Research: Vercel monorepo setup patterns (docs: vercel.com/docs/monorepos)
-- Research: Supabase multi-tenant patterns (check warmanswers-app /lib/supabase/ for RLS examples)
+- Research: Database multi-tenant patterns (check previous projects or reference implementations for examples)
 - Research: Database schema best practices (indexes needed? RLS policies?)
 - Include in guide: Exact Vercel project settings, exact Supabase table schema, exact .env variables
 
@@ -499,7 +499,7 @@ Document both options. AI2 decides final split.
 - Include in guide: Exact test cases (10+ diverse sites), exact performance validation steps
 
 **General guidance for AI2:**
-- Reference warmanswers-app codebase (patterns proven)
+- Reference previous projects or reference implementations (if available)
 - Don't over-engineer (start simple, iterate)
 - Multi-tenant is critical (every table needs isolation)
 - API rate limits matter (budget for paid tiers)
@@ -753,8 +753,8 @@ Key risks identified:
 - Puppeteer memory on Vercel (1GB config needed)
 
 Recommendations for AI2:
-- Reference warmanswers-app for Supabase patterns
-- Plan for PageSpeed paid tier ($200/mo)
+- Reference previous implementations for database patterns (if available)
+- Plan for API service costs based on chosen providers
 - Test cross-vertical in CP3 (critical for universality)
 
 Ready for AI2 planning phase.
