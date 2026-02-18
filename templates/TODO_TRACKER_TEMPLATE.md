@@ -157,7 +157,7 @@
 **Tasks completed:**
 - Git branch created: effort/STEP_1_2_SITE_CLONER
 - Vercel project: site-cloner (configured and deploying)
-- Supabase: Reused 10xbuild-platform, added 3 tables (cloned_sites, assets, site_metadata)
+- Supabase: Reused [platform-name], added 3 tables (cloned_sites, assets, site_metadata)
 - Environment: .env.local configured, Vercel env vars set
 - Deployment: Validated (preview URL works)
 
