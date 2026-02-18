@@ -68,7 +68,7 @@ Current Strategy Status (from ATLAS_STEPS files):
 - STEP 1: Validate on Contractors
   - STEP_1_1: First Contractor ⏸️ PLANNED
   - STEP_1_2-1_10: Next 9 contractors ⏸️ PLANNED
-- STEP 2: Build 10xbuild.com ⏸️ PLANNED
+- STEP 2: Build Marketing Site ⏸️ PLANNED
 
 **PART 2: Scale (Steps 3-5)**
 - STEP 3: Scale Contractors (10 → 25) ⏸️ PLANNED
