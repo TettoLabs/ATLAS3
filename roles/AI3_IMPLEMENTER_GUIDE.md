@@ -915,7 +915,7 @@ EOF
 
 **Deliverable:** Site Cloner V0.5
 - Multi-tenant website cloning tool
-- URL: cloner.10xbuild.com
+- URL: tool.yourdomain.com
 - Functionality: Input any site URL, scrapes structure/content/assets, generates Next.js project
 - Tech: Next.js 15 + Puppeteer + Supabase + Vercel
 - Architecture: Multi-tenant (RLS for data isolation)
@@ -932,7 +932,7 @@ EOF
 - Code: 2,400 lines (src/lib/scraper/ + src/lib/generator/)
 - Tests: 42 test cases (all passing)
 - Performance: 4.2 min avg clone time (target: <5min) ✅
-- Deployment: cloner.10xbuild.com live, zero downtime
+- Deployment: tool.yourdomain.com live, zero downtime
 - Database: 127 clones processed in testing
 ```
 
@@ -1047,8 +1047,8 @@ EOF
 ## Technical Foundation Established
 
 **Infrastructure (reusable for future Efforts):**
-- Vercel team: your company (2 projects now: Audit Engine, Site Cloner)
-- Supabase: 10xbuild-platform (6 tables: audits, customers, reports, cloned_sites, assets, site_metadata)
+- Vercel team: [your-team] (2 projects now: Audit Engine, Site Cloner)
+- Supabase: [platform-name] (6 tables: audits, customers, reports, cloned_sites, assets, site_metadata)
 - Deployment: Auto-deploy on push to main (proven across 2 tools)
 - Monitoring: Vercel analytics, Supabase dashboard
 
@@ -1103,7 +1103,7 @@ TO:
 **Status:** ✅ COMPLETE
 **Completed:** 2025-12-20
 **Duration:** 10 days (estimated: 10 days)
-**Outcome:** cloner.10xbuild.com live, tested on 10 diverse sites
+**Outcome:** tool.yourdomain.com live, tested on 10 diverse sites
 **Summary:** efforts/STEP_1_2_SITE_CLONER/COMPLETION_SUMMARY.md
 
 # If all substeps in Step complete, update Step status too:
