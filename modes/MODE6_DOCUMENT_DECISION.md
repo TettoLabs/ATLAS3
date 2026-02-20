@@ -65,9 +65,9 @@ Total: ~1,000-2,000 lines, ~17-25K tokens, ~10-15 min
 What decision was made?
 
 Example responses:
-- "We're switching from WordPress to Next.js for all customer sites"
-- "We're focusing on contractors only (not law firms yet)"
-- "We're pricing at $3,500 (not $5,000)"
+- "We're using Stripe for payment processing (not PayPal or Square)"
+- "We're focusing on B2B SaaS market (not B2C yet)"
+- "We're pricing at $49/month (not $99/month)"
 - "We're using Supabase (not Firebase)"
 
 [Human provides decision statement]
@@ -200,83 +200,84 @@ Example: "If sites don't hit <2s mobile after 5 customers, reconsider Next.js"
 **Usher creates structured entry:**
 
 ```markdown
-## 2025-12-20: Choose Next.js Over WordPress for All Customer Sites
+## 2025-12-20: Choose Stripe Over PayPal for Payment Processing
 
 **Context:**
-Planning STEP_1_1 (first customer site). Need to choose tech stack for all future customer deliveries. This decision affects 10-50 customer sites (entire vertical delivery).
+Planning STEP_0_2 (payment system). Need to choose payment provider for all future payment processing. This decision affects all subscription billing, one-time payments, and future financial integrations.
 
 **Decision:**
-Use Next.js 15 + Vercel for all customer sites (no WordPress, no site builders).
+Use Stripe API for all payment processing (not PayPal, not Square, not building custom processor).
 
 **Alternatives Considered:**
 
-**Option A: WordPress + Premium Theme**
+**Option A: PayPal**
 - **Pros:**
-  - Customers can self-edit (WYSIWYG editor, no developer needed)
-  - Huge plugin ecosystem (any feature imaginable)
-  - Familiar to many customers
-  - Cheaper hosting ($10/mo)
+  - Brand recognition (users trust PayPal)
+  - Global reach (202 countries, 25 currencies)
+  - Buyer protection (users feel safe)
+  - Lower ACH fees (0.8% vs Stripe's 0.8%)
 - **Cons:**
-  - Slow (even optimized WP sites: 3-4s mobile load)
-  - Security issues (constant updates, vulnerabilities)
-  - Plugin conflicts (maintenance nightmare)
-  - Not differentiated (competitors all use WordPress)
+  - Poor developer experience (clunky API, outdated docs)
+  - Webhook reliability issues (delayed events, missed webhooks)
+  - Account holds (PayPal freezes funds unpredictably)
+  - Not developer-first (designed for eBay sellers, not SaaS)
 
-**Option B: Next.js + Vercel** (CHOSEN)
+**Option B: Stripe** (CHOSEN)
 - **Pros:**
-  - Fast by default (<2s mobile achievable easily)
-  - Modern stack (React, TypeScript, AI-friendly)
-  - No security updates (static generation)
-  - Vercel hosting ($20/mo with zero-config)
-  - Differentiation (few agencies use modern stack)
-  - Scales to platform (component library reusable across customers)
+  - Best-in-class developer experience (excellent docs, SDKs, webhooks)
+  - Reliable webhooks (real-time, retry logic, signature verification)
+  - Subscription support (built-in recurring billing, plan changes, proration)
+  - Modern API (RESTful, predictable, well-documented)
+  - Strong ecosystem (integrations, tools, community)
+  - Fast settlement (2-day for US, vs PayPal's 3-5 days)
 - **Cons:**
-  - Customers can't self-edit (must go through us for changes)
-  - Smaller talent pool (fewer Next.js devs than WordPress devs)
-  - Steeper learning curve (if we hire)
+  - 2.9% + 30¢ per transaction (vs PayPal 2.9% + 30¢ - same)
+  - Less brand recognition than PayPal (users less familiar)
+  - Requires custom UI (no hosted checkout in basic tier)
 
-**Option C: Webflow**
+**Option C: Square**
 - **Pros:**
-  - Visual editor (customer can edit)
-  - Fast sites (better than WordPress)
-  - Designer-friendly
+  - Good for in-person + online (unified system)
+  - Flat-rate pricing (2.9% + 30¢, simple)
+  - Free hardware (card readers)
 - **Cons:**
-  - Vendor lock-in ($29/mo per site)
-  - Less flexibility (can't customize deeply)
-  - Not code-based (can't version control easily)
+  - In-person focus (not optimized for pure SaaS)
+  - Weaker subscription support (basic recurring billing)
+  - Less international support (primarily US/Canada/UK)
 
 **Rationale:**
-Chose Next.js (Option B) because:
-1. **Performance is our #1 differentiator** (from your company_CONTEXT: "10× the speed"). WordPress can't hit <2s mobile. Next.js can.
-2. **Customers explicitly want hands-off** (learned in customer research: "I don't want to learn tech, I want you to handle it"). No-edit is a feature, not a bug.
-3. **Platform trajectory** (internal tools + customer sites share component library → SaaS products emerge). WordPress doesn't enable this.
-4. **AI-assisted development** (Next.js + Cursor/Claude Code = 3x faster than WordPress customization)
+Chose Stripe (Option B) because:
+1. **Developer experience is critical** (from COMPANY_CONTEXT: "build fast, iterate quickly"). Stripe's API is 10x easier to integrate than PayPal's. Saves 2-3 days of development time.
+2. **Subscription support is core requirement** (learned in market research: 80% of target users prefer monthly billing). Stripe has native recurring billing, plan changes, proration. PayPal's subscription support is basic.
+3. **Webhook reliability is non-negotiable** (payment success/failure events must be real-time). Stripe webhooks are rock-solid with retry logic. PayPal webhooks have known reliability issues.
+4. **Future platform trajectory** (payment system → invoicing → billing analytics → full financial platform). Stripe's ecosystem enables this. PayPal is more limited.
 
 **Trade-Offs Accepted:**
-- **No self-edit for customers** → Creates dependency on us (acceptable - this creates recurring revenue through update packages)
-- **Smaller talent pool** → Harder to hire (acceptable - AI assistance reduces need for developers)
-- **Higher learning curve** → If we hire non-React dev (acceptable - upfront investment pays off long-term)
+- **Less brand recognition than PayPal** → Some users may not trust Stripe (acceptable - our target market is tech-savvy, they know Stripe)
+- **Custom UI required** → Must build checkout flow ourselves (acceptable - gives us full control over user experience)
+- **Same transaction fees as PayPal** → Not saving money (acceptable - developer time savings offset this)
 
 **Evidence/Input:**
-- Customer research: 8 of 10 prospects said "I want hands-off, not DIY"
-- Performance testing: Next.js test site 1.4s mobile vs WordPress test site 3.8s (even optimized WP)
-- Strategic alignment: your company_CONTEXT.md emphasizes "ongoing operations" (requires control, not customer-editable)
+- User research: 15 of 20 target users prefer subscription billing over one-time payment
+- Developer experience testing: Stripe integration took 2 days, PayPal integration took 5 days (in prototype)
+- Strategic alignment: COMPANY_CONTEXT.md emphasizes "developer velocity" (Stripe's API enables fast iteration)
 
 **Validation Plan:**
-- **Metric:** 100% of customer sites hit <2s mobile load
-- **Timeline:** Validate by customer #5 (Month 3)
-- **Signal:** If sites consistently hit <2s and customers don't request self-edit → decision validated
-- **Failure signal:** If performance issues arise or 3+ customers request self-edit → reconsider
+- **Metric:** 99%+ webhook success rate, <2 day integration time for future payment features
+- **Timeline:** Validate by 100 paid transactions (Month 2)
+- **Signal:** If webhook reliability is solid and no integration blockers → decision validated
+- **Failure signal:** If webhook issues arise or integration takes >5 days for new features → reconsider
 
 **Reversibility:** Medium
-- Can pivot to WordPress after 5 customers (would need to rebuild, ~4 weeks)
-- Can add Webflow option as alternative tier (keep Next.js as premium)
-- After 15 customers: Very hard (too much invested in Next.js patterns)
+- Can switch to PayPal after 100 transactions (would need to rebuild payment flow, ~2 weeks)
+- Can add PayPal as secondary option (offer both Stripe and PayPal)
+- After 10,000 transactions: Very hard (too much data in Stripe, migration complex)
 
 **Affected Steps:**
-- STEP_1_X (all customer delivery uses Next.js)
-- STEP_0_3 (Rebuild Engine built for Next.js output)
-- STEP_5+ (SaaS products built on shared component library)
+- STEP_0_2 (payment system uses Stripe)
+- STEP_0_3 (notification service sends payment receipts via Stripe events)
+- STEP_1_X (user dashboard shows Stripe transaction data)
+- STEP_3+ (subscription management features built on Stripe API)
 
 **Decision Makers:** Ryan (solo founder, informed by customer research and performance testing)
 
@@ -310,9 +311,9 @@ git push
 ```
 Decision documented in DECISION_LOG.md.
 
-Entry: "Choose Next.js Over WordPress for All Customer Sites"
+Entry: "Choose Stripe Over PayPal for Payment Processing"
 Date: 2025-12-20
-Affects: STEP_1_X (all customer delivery)
+Affects: STEP_0_2, STEP_0_3, STEP_1_X (payment system and dependent features)
 
 Future teams can reference this decision (no re-litigation).
 
