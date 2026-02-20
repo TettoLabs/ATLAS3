@@ -62,7 +62,7 @@ Say: "Read this file and present the Usher menu"
 ```
 "Select Mode 1 (Auto-Resume)
 
-Pretend we're working on STEP_0_2_SITE_CLONER which is IN_PROGRESS.
+Pretend we're working on STEP_0_2_PAYMENT_SYSTEM which is IN_PROGRESS.
 
 What files would you load for AI3 executing CP3?"
 ```
@@ -88,7 +88,7 @@ What files would you load for AI3 executing CP3?"
 ```
 "Select Mode 2 (Refine Substeps)
 
-We need to make STEP_0_3 (Rebuild Engine) more specific.
+We need to make STEP_0_3 (Notification Service) more specific.
 
 Walk me through the refinement process."
 ```
@@ -97,7 +97,7 @@ Walk me through the refinement process."
 - Claude loads MODE2_REFINE_SUBSTEPS.md
 - Loads context (ATLAS_STEPS files, LEARNINGS, DECISIONS)
 - Asks questions to make substep specific:
-  - What exactly is Rebuild Engine?
+  - What exactly is Notification Service?
   - What are deliverables?
   - What are success criteria?
   - How should it be broken into substeps?
@@ -117,8 +117,8 @@ Walk me through the refinement process."
 "Select Mode 5 (Learning Capture)
 
 Extract learnings from a hypothetical COMPLETION_SUMMARY that says:
-- Parallel downloads were 5x faster than sequential
-- Cross-vertical testing caught contractor assumptions
+- Async webhook processing was 8x faster than synchronous
+- Diverse scenario testing caught 3D Secure edge cases
 - Reusing Supabase saved 2 hours
 
 Draft learning entries."
@@ -141,7 +141,7 @@ Draft learning entries."
 
 **Say to Claude:**
 ```
-"We have an Effort at /efforts/STEP_1_2_SITE_CLONER/ with:
+"We have an Effort at /efforts/STEP_0_2_PAYMENT_SYSTEM/ with:
 - START_HERE.md exists
 - OUTLINE.md exists
 - 5 guides exist (CP0-CP4)
@@ -155,7 +155,7 @@ What phase are we in? What's next?"
 - Claude analyzes file existence
 - Detects: AI3 phase (all guides exist)
 - Reads TODO_TRACKER: CP3 is next
-- States: "AI3 execution phase, execute CP3 (Site Generation)"
+- States: "AI3 execution phase, execute CP3 (Webhook Processing)"
 - Lists files to load for CP3
 
 **✅ Pass if:** Correct detection, identifies CP3, knows what to load
