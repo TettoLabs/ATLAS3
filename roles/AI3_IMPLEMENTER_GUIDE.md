@@ -425,9 +425,9 @@ npm run dev
 # Visit http://localhost:3000
 
 # Test what was built in this CP:
-# - If CP1 (scraping): Test scraper endpoint, verify works
-# - If CP2 (extraction): Test content extraction, check output
-# - If CP3 (generation): Test site generation, verify builds
+# - If CP1 (Stripe integration): Test payment endpoint, verify successful charge
+# - If CP2 (subscription logic): Test subscription creation, check recurring billing
+# - If CP3 (webhooks): Test webhook handling, verify event processing
 # - If CP4 (testing): Run comprehensive test suite
 
 # Check browser console: No errors
@@ -517,29 +517,29 @@ git push origin staging
 # Find current CP section, update:
 
 FROM:
-### CP1: Site Scraping Engine ⏸️ PENDING
-**Goal:** Puppeteer scraper
+### CP1: Stripe Integration ⏸️ PENDING
+**Goal:** Payment processing with Stripe
 **Estimated duration:** 2 days
 **Status:** Not started
 
 TO:
-### CP1: Site Scraping Engine ✅ COMPLETE
-**Goal:** Puppeteer scraper
+### CP1: Stripe Integration ✅ COMPLETE
+**Goal:** Payment processing with Stripe
 **Estimated duration:** 2 days
 **Actual duration:** 1.8 days
 **Completed:** 2025-12-18 16:00
 **Status:** Complete
 
 **Notes:**
-- Puppeteer integration smoother than expected (saved 4 hours)
-- Reused patterns from STEP_1_1 Audit Engine (PDF generation similar)
-- Memory config 1GB worked (no issues)
-- Tested on 5 diverse sites (contractor, law, healthcare, restaurant, retail)
+- Stripe SDK integration smoother than expected (saved 4 hours)
+- Reused patterns from STEP_0_1 User Dashboard (authentication flow similar)
+- Webhook handling straightforward (no issues)
+- Tested with 5 payment scenarios (card, card decline, 3D Secure, refund, subscription)
 
 **Output:**
-- Scraper function: src/lib/scraper/puppeteer-scraper.ts (250 lines)
-- Asset downloader: src/lib/scraper/asset-downloader.ts (180 lines)
-- Tests: __tests__/scraper/ (15 test cases, all passing)
+- Payment service: src/lib/payment/stripe-service.ts (250 lines)
+- Webhook handler: src/lib/payment/webhook-handler.ts (180 lines)
+- Tests: __tests__/payment/ (15 test cases, all passing)
 - Staging: Deployed and validated
 
 **Blockers encountered:** None
@@ -750,7 +750,7 @@ npm run test:e2e
 
 # Or manual E2E:
 # Test full user flows from start to finish
-# Example (audit tool): Input URL → Analysis runs → PDF generated → Email delivered
+# Example (payment system): User checkout → Payment form → Stripe charge → Confirmation email delivered
 
 # 2. Performance validation
 npm run build  # Production build
@@ -784,15 +784,15 @@ npm start  # Production server
 # - Missing form labels
 # - Missing ARIA attributes on custom components
 
-# 4. Cross-vertical testing (if multi-vertical tool)
-# Test on diverse sites:
-# - Contractor site (HVAC, plumbing, electrical)
-# - Law firm site (different structure, content)
-# - Healthcare site (compliance needs, HIPAA mentions)
-# - Restaurant site (menu, photos, hours)
-# - Retail site (products, gallery)
+# 4. Cross-scenario testing (if applicable)
+# Test diverse use cases:
+# - One-time payment (simple checkout flow)
+# - Subscription payment (recurring billing)
+# - Failed payment (card decline, insufficient funds)
+# - Refund scenario (partial and full refunds)
+# - 3D Secure authentication (EU cards, strong customer authentication)
 
-# Validate: Tool works universally (not just one type)
+# Validate: System handles all payment scenarios (not just happy path)
 
 # 5. Security scan
 grep -r "console.log" src/  # Should find ZERO (or only in dev utilities)
@@ -850,8 +850,8 @@ gh pr create \
 - Tests: ✅ All passing ([X]/[X])
 - Performance: ✅ Lighthouse [score], mobile <2s
 - Accessibility: ✅ WCAG AA, zero critical errors
-- Cross-vertical: ✅ Tested on contractor, law, healthcare
-- Security: ✅ No vulnerabilities, secrets secured
+- Payment scenarios: ✅ Tested one-time, subscription, refund, 3D Secure
+- Security: ✅ No vulnerabilities, PCI compliance validated, secrets secured
 
 ### Deployment
 - Staging: Fully tested and validated
@@ -913,133 +913,133 @@ EOF
 ```markdown
 ## What Was Built
 
-**Deliverable:** Site Cloner V0.5
-- Multi-tenant website cloning tool
-- URL: tool.yourdomain.com
-- Functionality: Input any site URL, scrapes structure/content/assets, generates Next.js project
-- Tech: Next.js 15 + Puppeteer + Supabase + Vercel
-- Architecture: Multi-tenant (RLS for data isolation)
+**Deliverable:** Payment System V1.0
+- Multi-tenant payment processing system
+- URL: app.yourdomain.com/checkout
+- Functionality: Accept payments (one-time + subscriptions), process refunds, handle webhooks
+- Tech: Next.js 15 + Stripe + Supabase + Vercel
+- Architecture: Multi-tenant (RLS for transaction isolation)
 
 **Capabilities:**
-- Scrapes: HTML structure, CSS styling, images, fonts
-- Extracts: Content (text, headings, metadata), SEO data, color scheme
-- Generates: Next.js project (ready to deploy, builds without errors)
-- Performance: <5 min per clone (target met)
-- Universal: Tested on contractor, law, healthcare sites (works across all)
+- Payments: Credit/debit cards, ACH, digital wallets (Apple Pay, Google Pay)
+- Subscriptions: Recurring billing, plan changes, cancellations
+- Webhooks: Real-time event processing (payment success/failure, subscription updates)
+- Security: PCI DSS compliant, tokenized cards, encrypted data
+- Reliability: Tested with diverse scenarios (happy path, failures, edge cases)
 
 **Metrics:**
 - Development time: 10 days (estimated: 10 days) ✅
-- Code: 2,400 lines (src/lib/scraper/ + src/lib/generator/)
+- Code: 2,400 lines (src/lib/payment/ + src/lib/webhooks/)
 - Tests: 42 test cases (all passing)
-- Performance: 4.2 min avg clone time (target: <5min) ✅
-- Deployment: tool.yourdomain.com live, zero downtime
-- Database: 127 clones processed in testing
+- Performance: <500ms average payment processing time (target: <1s) ✅
+- Deployment: app.yourdomain.com/checkout live, zero downtime
+- Test transactions: 127 payments processed in testing
 ```
 
 **2. Key Decisions**
 ```markdown
 ## Key Decisions
 
-**Decision 1: Puppeteer over Playwright**
-- **Context:** Needed site scraping tool
-- **Options:** Puppeteer (Chrome DevTools Protocol) vs Playwright (multi-browser) vs Cheerio (HTML only)
-- **Chose:** Puppeteer
-- **Rationale:** Chrome-only sufficient (SMB sites are Chrome-compatible), simpler than Playwright, more capable than Cheerio (handles JS-rendered content)
-- **Trade-off:** No Firefox/Safari testing (acceptable - Chrome covers 90% of SMB site usage)
-- **Outcome:** CORRECT (Puppeteer worked perfectly, no issues)
+**Decision 1: Stripe over PayPal/Square**
+- **Context:** Needed payment processing provider
+- **Options:** Stripe (developer-friendly API) vs PayPal (consumer brand) vs Square (in-person focus)
+- **Chose:** Stripe
+- **Rationale:** Best API documentation, strong webhook system, supports global currencies, handles subscriptions natively
+- **Trade-off:** 2.9% + 30¢ per transaction (industry standard), slightly more expensive for ACH than others
+- **Outcome:** CORRECT (Stripe API worked perfectly, excellent developer experience)
 
-**Decision 2: Content extraction with Cheerio**
-- **Context:** Need to parse cloned HTML
-- **Options:** Cheerio (jQuery-like) vs custom regex vs DOM parser
-- **Chose:** Cheerio
-- **Rationale:** Battle-tested, jQuery syntax familiar, handles malformed HTML gracefully
-- **Trade-off:** Extra dependency (84KB), but worth it for reliability
-- **Outcome:** CORRECT (Cheerio handled all edge cases, even malformed HTML)
+**Decision 2: Webhook-based event processing**
+- **Context:** Need real-time payment status updates
+- **Options:** Webhooks (push) vs polling (pull) vs redirect-only (synchronous)
+- **Chose:** Webhooks
+- **Rationale:** Real-time updates, reliable delivery with retry logic, Stripe best practice
+- **Trade-off:** Need secure endpoint + signature verification (added 2 hours dev time)
+- **Outcome:** CORRECT (webhooks are reliable, <1s latency for event processing)
 
-**Decision 3: Store assets in Supabase Storage (not local files)**
-- **Context:** Cloned images need storage
-- **Options:** Supabase Storage (S3-like) vs local filesystem vs external CDN
-- **Chose:** Supabase Storage
-- **Rationale:** Integrated with Supabase (already using), multi-tenant ready, CDN included
-- **Trade-off:** Storage costs (5GB free, then $0.021/GB) vs free filesystem
-- **Outcome:** CORRECT (multi-tenant worked perfectly, costs negligible so far)
+**Decision 3: Store payment metadata in Supabase (not just Stripe)**
+- **Context:** Need to query payment history for dashboard
+- **Options:** Query Stripe API vs mirror data in Supabase vs hybrid
+- **Chose:** Mirror critical data in Supabase
+- **Rationale:** Fast queries (local DB), reduce Stripe API calls (rate limits), join with user data easily
+- **Trade-off:** Maintain sync logic (webhook handler updates both systems)
+- **Outcome:** CORRECT (dashboard queries 50x faster, costs $0 vs $X for Stripe API calls)
 ```
 
 **3. What Worked**
 ```markdown
 ## What Worked (Repeat in Future)
 
-✅ **Reused Supabase instance from STEP_1_1**
+✅ **Reused Supabase instance from STEP_0_1**
 - Saved 2 hours setup time (no new project)
 - RLS patterns copied (worked immediately)
 - Cost savings ($0 vs $25/mo for second project)
 
-✅ **Copied Puppeteer patterns from Audit Engine**
-- PDF generation in STEP_1_1 used Puppeteer (similar launch/close patterns)
-- Memory config 1GB already known (applied immediately)
-- Error handling patterns (timeout, navigation) copied
+✅ **Copied authentication patterns from User Dashboard**
+- User session handling in STEP_0_1 used similar JWT patterns
+- Role-based access control logic reused (applied immediately)
+- Error handling patterns (expired tokens, refresh logic) copied
 
-✅ **Cross-vertical testing in CP4**
-- Caught contractor-specific color scheme issue (blue/orange didn't work for law firms)
-- Fixed universal color detection (now extracts from any site)
-- Testing 10 diverse sites was worth the time (prevented production issues)
+✅ **Comprehensive scenario testing in CP4**
+- Caught edge case with failed 3D Secure auth (wasn't handling redirect properly)
+- Fixed webhook signature validation (now verifies all Stripe events correctly)
+- Testing 10+ payment scenarios was worth the time (prevented production issues)
 ```
 
 **4. What Didn't Work**
 ```markdown
 ## What Didn't Work / Challenges
 
-⚠️ **Initial asset download was synchronous (too slow)**
-- **Problem:** Downloading 50 images sequentially took 8 minutes (unacceptable)
-- **Solution:** Implemented parallel download (Promise.all with concurrency limit: 10)
-- **Result:** Same 50 images in 90 seconds (5x faster)
-- **Learning:** Always parallelize I/O operations (network, file system)
-- **For next Effort:** Start with parallel patterns (don't optimize later)
+⚠️ **Initial webhook processing was synchronous (too slow)**
+- **Problem:** Processing 50 webhook events sequentially took 8 seconds (caused timeouts)
+- **Solution:** Implemented background job queue (process webhooks asynchronously)
+- **Result:** Webhook endpoint returns 200 in <100ms, processing happens in background
+- **Learning:** Always handle webhooks asynchronously (provider expects <5s response)
+- **For next Effort:** Start with async patterns (don't optimize later)
 
-⚠️ **Cheerio didn't handle some CSS edge cases**
-- **Problem:** Sites with @import CSS rules (external stylesheets) were incomplete
-- **Solution:** Added separate CSS fetcher (fetch @import URLs recursively)
-- **Result:** Full CSS extraction working
-- **Learning:** Test on diverse sites early (edge cases appear quickly)
+⚠️ **Stripe API didn't handle some edge cases gracefully**
+- **Problem:** Card decline errors weren't user-friendly (raw Stripe error messages)
+- **Solution:** Added error translation layer (map Stripe codes to user messages)
+- **Result:** Users see helpful messages ("Card declined - insufficient funds") instead of error codes
+- **Learning:** Test error scenarios early (edge cases appear quickly)
 
-⚠️ **Supabase Storage upload rate limits**
-- **Problem:** Uploading 100 assets hit rate limit (20 requests/second)
-- **Solution:** Added batching (upload 10 at a time with delay)
-- **Result:** Works reliably now
-- **Learning:** Check rate limits BEFORE implementing (not after hitting them)
+⚠️ **Database connection pool exhaustion**
+- **Problem:** Processing 100 payments simultaneously exhausted connection pool (25 max)
+- **Solution:** Added connection pooling configuration (increased to 50) + query optimization
+- **Result:** Handles 200+ concurrent payments reliably
+- **Learning:** Load test BEFORE implementing (not after hitting limits)
 ```
 
 **5. Recommendations for Next**
 ```markdown
 ## Recommendations for Next Substep
 
-**For STEP_1_3 (Rebuild Engine):**
-1. **Reuse content extraction logic from this Effort**
-   - Location: src/lib/generator/content-extractor.ts
-   - Works for contractor, law, healthcare (universal)
-   - Don't rebuild - copy and adapt
+**For STEP_0_3 (Notification Service):**
+1. **Reuse webhook handling logic from this Effort**
+   - Location: src/lib/webhooks/stripe-handler.ts
+   - Handles signature verification, async processing, retry logic
+   - Don't rebuild - copy and adapt for SendGrid/Twilio webhooks
 
-2. **Reuse parallel asset download patterns**
-   - Location: src/lib/scraper/asset-downloader.ts
-   - Handles rate limits, errors, retries
-   - Proven approach
+2. **Reuse background job queue patterns**
+   - Location: src/lib/queue/job-processor.ts
+   - Handles rate limits, errors, retries, dead letter queue
+   - Proven approach for async processing
 
-3. **Consider: Combine Cloner + Rebuild Engine**
-   - Cloner extracts content (this Effort)
-   - Rebuild Engine generates modern site (next Effort)
-   - Could be integrated (clone → analyze → rebuild pipeline)
-   - Discuss with human: Separate tools or integrated platform?
+3. **Consider: Integrate Payment System + Notification Service**
+   - Payment System triggers events (this Effort)
+   - Notification Service sends emails/SMS (next Effort)
+   - Could be tightly integrated (payment success → notification pipeline)
+   - Discuss with human: Separate services or integrated system?
 
-**For AI1 researching STEP_1_3:**
-- Site Cloner codebase exists (reference /apps/site-cloner/)
-- Puppeteer patterns proven (scraping works reliably)
-- Multi-vertical tested (know what varies per vertical)
-- Content structure known (heading hierarchy, sections, CTAs)
+**For AI1 researching STEP_0_3:**
+- Payment System codebase exists (reference /apps/payment-system/)
+- Webhook patterns proven (event handling works reliably)
+- Event-driven architecture tested (know what events need notifications)
+- User preference patterns established (can extend for notification preferences)
 
-**For AI2 planning STEP_1_3:**
-- CP0 can be lighter (infrastructure exists, just add Rebuild Engine app)
-- Consider: Can Rebuild Engine reuse Cloner's scraper? (might save 2 days)
-- Watch for: Content generation (harder than extraction - more research needed)
+**For AI2 planning STEP_0_3:**
+- CP0 can be lighter (infrastructure exists, just add Notification Service)
+- Consider: Can Notification Service reuse Payment webhook patterns? (might save 2 days)
+- Watch for: Email deliverability (harder than webhooks - more research needed)
 ```
 
 **6. Technical Foundation**
@@ -1047,33 +1047,33 @@ EOF
 ## Technical Foundation Established
 
 **Infrastructure (reusable for future Efforts):**
-- Vercel team: [your-team] (2 projects now: Audit Engine, Site Cloner)
-- Supabase: [platform-name] (6 tables: audits, customers, reports, cloned_sites, assets, site_metadata)
-- Deployment: Auto-deploy on push to main (proven across 2 tools)
-- Monitoring: Vercel analytics, Supabase dashboard
+- Vercel team: [your-team] (2 projects now: User Dashboard, Payment System)
+- Supabase: [platform-name] (6 tables: users, sessions, payments, subscriptions, transactions, webhooks)
+- Deployment: Auto-deploy on push to main (proven across 2 features)
+- Monitoring: Vercel analytics, Supabase dashboard, Stripe dashboard
 
 **Code Patterns (reusable):**
-- Puppeteer launch/close patterns (src/lib/scraper/puppeteer-scraper.ts)
+- Webhook signature verification (src/lib/webhooks/verify-signature.ts)
 - Supabase RLS multi-tenant (src/lib/supabase/client.ts)
-- Asset optimization (src/lib/scraper/asset-optimizer.ts - sharp integration)
-- Error handling (graceful failures, retry logic)
+- Background job processing (src/lib/queue/job-processor.ts)
+- Error handling (graceful failures, retry logic with exponential backoff)
 
 **Dependencies (established):**
-- Puppeteer: 21.6.0 (stable, use same version in future)
-- Cheerio: 1.0.0-rc.12 (handles malformed HTML)
-- Sharp: 0.33.1 (image optimization)
+- Stripe: 14.10.0 (stable, use same version in future)
+- Next.js: 15.0.0 (app router with server actions)
 - Supabase: 2.39.0 (client library)
+- TypeScript: 5.3.3 (strict mode enabled)
 
 **Cost:**
 - Vercel: $0/mo (free tier, 2 projects)
 - Supabase: $0/mo (shared project, <500MB database)
-- Puppeteer: No cost (runs on Vercel serverless)
-**Total: $0/mo** (no marginal cost for Site Cloner)
+- Stripe: 2.9% + 30¢ per transaction (industry standard)
+**Total: $0/mo base cost** (transaction fees only)
 
 **Learned patterns:**
 - Multi-tenant from day 1 pays off (easy to add features, no refactoring)
-- Reusing infrastructure saves time (STEP_1_2 setup took 4h vs STEP_1_1 took 6h - reuse saved 2h)
-- Cross-vertical testing catches issues (law firm color scheme bug found in CP4)
+- Reusing infrastructure saves time (STEP_0_2 setup took 4h vs STEP_0_1 took 6h - reuse saved 2h)
+- Comprehensive scenario testing catches issues (3D Secure edge case found in CP4)
 
 ---
 
@@ -1094,17 +1094,17 @@ EOF
 # Find STEP_X_Y, update status:
 
 FROM:
-#### STEP_1_2: Build Site Cloner
+#### STEP_0_2: Build Payment System
 **Status:** ⏸️ PLANNED
-**Target:** Universal cloning tool
+**Target:** Stripe integration for payments and subscriptions
 
 TO:
-#### STEP_1_2: Build Site Cloner
+#### STEP_0_2: Build Payment System
 **Status:** ✅ COMPLETE
 **Completed:** 2025-12-20
 **Duration:** 10 days (estimated: 10 days)
-**Outcome:** tool.yourdomain.com live, tested on 10 diverse sites
-**Summary:** efforts/STEP_1_2_SITE_CLONER/COMPLETION_SUMMARY.md
+**Outcome:** app.yourdomain.com/checkout live, tested with 10+ payment scenarios
+**Summary:** efforts/STEP_0_2_PAYMENT_SYSTEM/COMPLETION_SUMMARY.md
 
 # If all substeps in Step complete, update Step status too:
 ## STEP 1: Build Platform Foundation
@@ -1113,7 +1113,7 @@ TO:
 
 # Commit update
 git add strategy/ATLAS_STEPS.md
-git commit -m "Strategy: Mark STEP_1_2 complete (Site Cloner launched)"
+git commit -m "Strategy: Mark STEP_0_2 complete (Payment System launched)"
 git push origin effort/STEP_X_Y_[NAME]
 ```
 
@@ -1159,14 +1159,14 @@ git push
 ### **Final CP Completion Report**
 
 ```
-Final checkpoint (CP4) and Effort STEP_1_2_SITE_CLONER COMPLETE.
+Final checkpoint (CP4) and Effort STEP_0_2_PAYMENT_SYSTEM COMPLETE.
 
 Comprehensive testing passed:
-- E2E: ✅ All user flows tested
+- E2E: ✅ All payment flows tested
 - Performance: ✅ Lighthouse 94, mobile 1.6s load
 - Accessibility: ✅ WCAG AA, zero critical errors
-- Cross-vertical: ✅ Tested on 10 sites (contractor, law, healthcare, etc.)
-- Security: ✅ No secrets, no vulnerabilities, input validated
+- Payment scenarios: ✅ Tested 10+ scenarios (one-time, subscription, refund, 3D Secure, failures)
+- Security: ✅ No secrets, PCI compliance validated, all transactions encrypted
 
 Production ready:
 - Staging: Fully validated
@@ -1175,12 +1175,12 @@ Production ready:
 - Monitoring: Plan documented
 
 Documents created:
-- COMPLETION_SUMMARY.md: ✅ (handoff to STEP_1_3)
-- ATLAS_STEPS.md: ✅ Updated (STEP_1_2 marked complete)
+- COMPLETION_SUMMARY.md: ✅ (handoff to STEP_0_3)
+- ATLAS_STEPS.md: ✅ Updated (STEP_0_2 marked complete)
 - TODO_TRACKER.md: ✅ All CPs marked complete
 
 Git:
-- Branch: effort/STEP_1_2_SITE_CLONER
+- Branch: effort/STEP_0_2_PAYMENT_SYSTEM
 - Staging: All commits merged
 - Main: Awaiting PR approval
 - Commits: 67 total across all CPs
@@ -1197,9 +1197,9 @@ Next:
 Human approves PR #47 → merges to main → production deployment → substep officially complete
 
 Then:
-Next substep STEP_1_3 AI1 reads COMPLETION_SUMMARY (efficient handoff)
+Next substep STEP_0_3 AI1 reads COMPLETION_SUMMARY (efficient handoff)
 
-Effort STEP_1_2 complete. Excellent work. 🎯
+Effort STEP_0_2 complete. Excellent work. 🎯
 ```
 
 ---
