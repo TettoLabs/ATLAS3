@@ -277,7 +277,7 @@ Rare but safe for major evolution.
 
 **Mental test:**
 ```
-1. Pick past Effort (e.g., STEP_0_1 Audit Engine)
+1. Pick past Effort (e.g., STEP_0_1 User Dashboard)
 2. Apply new template instructions mentally
 3. Ask: Would this have helped or confused?
 4. Ask: Would this have saved time or added overhead?
