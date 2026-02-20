@@ -24,6 +24,33 @@ ATLAS is a **state-driven orchestration framework** that turns company vision in
 
 ---
 
+## Customization Philosophy
+
+**ATLAS provides structure, YOU provide guardrails.**
+
+The 31 framework files are not meant to be used as-is. They are **templates you customize** to encode your engineering standards as AI instructions.
+
+**Generic ATLAS tells AI:** "Follow this workflow (research → plan → execute)"
+**Customized ATLAS tells AI:** "Follow this workflow AND watch for [your security requirements], validate [your quality standards], follow [your git process] exactly"
+
+**What you customize:**
+- Security requirements (HIPAA compliance vs minimal auth vs internal-only)
+- Quality standards (API stability vs data integrity vs performance targets)
+- Testing depth (unit tests vs integration vs E2E vs compliance validation)
+- Documentation needs (API docs vs compliance docs vs minimal internal notes)
+- Git workflow (your branching strategy, PR process, deployment gates)
+
+**Examples of customization:**
+- Healthcare app: Add HIPAA compliance checks, PHI encryption validation, audit logging to AI3 guide
+- Open source library: Add semantic versioning validation, backward compatibility tests, deprecation warnings
+- Real-time collaboration: Add conflict resolution testing, state sync validation, WebSocket reliability checks
+
+**The more you customize, the better AI follows your exact engineering practices.**
+
+See [ONBOARDING.md - Phase 3](./ONBOARDING.md#phase-3-customize-role-files-for-your-domain-1-2-hours) for detailed customization guide.
+
+---
+
 ## The Core Problem ATLAS Solves
 
 **Building a company requires:**

@@ -133,7 +133,117 @@ ls /ATLAS3/strategy/*.md | wc -l
 
 ---
 
-### Phase 3: Create Vision Document (1-2 hours)
+### Phase 3: Customize Role Files for Your Domain (1-2 hours)
+
+**CRITICAL:** Generic ATLAS won't work optimally without customization. The framework provides structure, YOU add guardrails.
+
+**What to customize:**
+- `roles/AI3_IMPLEMENTER_GUIDE.md` - Security checklist, quality standards, git workflow
+- `roles/AI2_GUIDE_CREATOR_GUIDE.md` - Planning requirements, quality bars
+- `roles/AI1_RESEARCHER_GUIDE.md` - Research focus areas, validation criteria
+- Add/remove modes based on your workflow needs
+
+**Why customize:** ATLAS tells AI "follow this workflow." Customization tells AI "watch for THESE specific things in OUR domain."
+
+---
+
+#### Example 1: Healthcare/Medical Records App
+
+**Domain needs:** HIPAA compliance, patient data protection, audit everything
+
+**Customize AI3_IMPLEMENTER_GUIDE.md:**
+
+```markdown
+**Add to Security Checklist (line 270):**
+- [ ] HIPAA compliance validated (PHI encrypted at rest and in transit)
+- [ ] Patient consent tracking (every data access requires consent record)
+- [ ] Audit logging (log all PHI access with user ID, timestamp, reason)
+- [ ] Data retention policies (automatic deletion after legal retention period)
+- [ ] Breach notification procedure (documented and tested)
+- [ ] Business Associate Agreements (if using third-party services)
+
+**Add to Testing Requirements (line 380):**
+- [ ] PHI anonymization works (test data has no real patient info)
+- [ ] Access control validation (test users cannot access other patients' data)
+- [ ] Audit log completeness (every database query logged)
+- [ ] Encryption verification (data at rest uses AES-256)
+
+**Add to Documentation Requirements:**
+- [ ] Compliance documentation (HIPAA security rule checklist)
+- [ ] Incident response procedures (data breach protocol)
+- [ ] Risk assessment documentation (security risk analysis)
+```
+
+**Result:** AI3 now enforces HIPAA compliance at every checkpoint, not just "reasonable security."
+
+---
+
+#### Example 2: Open Source Developer Library
+
+**Domain needs:** Public API stability, backward compatibility, community documentation
+
+**Customize AI3_IMPLEMENTER_GUIDE.md:**
+
+```markdown
+**Add to Quality Checklist (after line 1210):**
+- [ ] Semantic versioning strict (breaking changes require major version bump)
+- [ ] Backward compatibility tests (old code still works with new version)
+- [ ] Deprecation warnings (features being removed have 2-version warning period)
+- [ ] Migration guides (breaking changes include step-by-step migration docs)
+- [ ] API surface review (any new public methods documented and justified)
+- [ ] Changelog updated (every PR adds entry to CHANGELOG.md)
+
+**Add to Documentation Requirements:**
+- [ ] API documentation (every public method has JSDoc/docstring)
+- [ ] README examples updated (if API changed)
+- [ ] Migration guide (if breaking changes introduced)
+- [ ] TypeScript types exported (for consumers)
+
+**Remove from Security Checklist:**
+- Authentication requirements (library has no auth)
+- Multi-tenant isolation (not applicable)
+- Secrets management (library users handle their own secrets)
+```
+
+**Result:** AI3 now focuses on API stability and community docs, not security theater for OSS library.
+
+---
+
+#### Example 3: Real-Time Collaboration Platform
+
+**Domain needs:** Conflict resolution, state synchronization, WebSocket reliability
+
+**Customize AI3_IMPLEMENTER_GUIDE.md:**
+
+```markdown
+**Add to Quality Checklist (after line 1210):**
+- [ ] Conflict resolution tested (concurrent edits merge correctly)
+- [ ] Operational transformation correctness (OT algorithm validated)
+- [ ] WebSocket reliability (reconnection logic handles network failures)
+- [ ] Offline mode works (local changes sync when reconnected)
+- [ ] State consistency (all clients converge to same state)
+- [ ] Race condition testing (simultaneous operations handled)
+
+**Add to Performance Requirements:**
+- [ ] Collaborative operation latency <100ms (typing/cursor updates)
+- [ ] Sync conflicts resolve in <1s (merge algorithm performance)
+- [ ] WebSocket reconnection <2s (automatic, seamless to user)
+
+**Add to Testing Requirements:**
+- [ ] Multi-client testing (3+ simultaneous users editing)
+- [ ] Network failure scenarios (disconnect, reconnect, packet loss)
+- [ ] Conflict scenarios (same character edited simultaneously)
+```
+
+**Result:** AI3 now validates distributed systems concerns specific to real-time collaboration.
+
+---
+
+**Key Insight:** Each project type needs wildly different guardrails. Customization transforms ATLAS from "generic process framework" to "YOUR engineering standards enforced by AI."
+
+---
+
+### Phase 4: Create Vision Document (1-2 hours)
 
 **File:** `/Projects/YOUR_COMPANY_CONTEXT.md`
 
@@ -159,7 +269,7 @@ Usher asks clarifying questions, helps structure
 
 ---
 
-### Phase 4: Create Strategic Steps (1-2 hours)
+### Phase 5: Create Strategic Steps (1-2 hours)
 
 **Files:** `/ATLAS3/strategy/ATLAS_STEPS_TRACKER.md` + `/ATLAS3/strategy/steps/STEP_X.md`
 
@@ -198,7 +308,7 @@ AI drafts, you review/approve
 
 ---
 
-### Phase 5: First Execution Test (30 min)
+### Phase 6: First Execution Test (30 min)
 
 **Validate everything works:**
 

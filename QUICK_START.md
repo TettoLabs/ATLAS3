@@ -15,7 +15,21 @@
 2. ATLAS_OVERVIEW.md (15 min - skim, focus on three-phase workflow)
 3. ATLAS_ENTRY_POINT.md (10 min - understand 8 Usher modes)
 
-**Create vision doc (30 min):**
+**Quick customize (15 min):**
+```
+Edit: roles/AI3_IMPLEMENTER_GUIDE.md
+
+Add YOUR domain-specific guardrails:
+- If healthcare: Add HIPAA compliance checks (line 270)
+- If fintech: Add PCI DSS requirements, fraud detection
+- If open source: Add API stability checks, remove security paranoia
+- Your git workflow: Edit git commands to match YOUR process (line 460+)
+
+This step is optional for 2-hour quick start but critical for real projects.
+See ONBOARDING.md Phase 3 for detailed examples.
+```
+
+**Create vision doc (15 min):**
 ```
 File: /YOUR_COMPANY_CONTEXT.md
 

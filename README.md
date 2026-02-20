@@ -31,6 +31,23 @@ See [ONBOARDING.md](./ONBOARDING.md) for guidance on adapting to your technology
 
 ---
 
+## Customization is Critical
+
+**ATLAS provides orchestration structure, not project-specific guardrails.**
+
+You must customize role files to encode YOUR engineering standards as AI instructions:
+- **Security requirements:** HIPAA compliance checks vs reasonable auth vs minimal (internal tools)
+- **Quality standards:** API stability requirements, performance targets, testing depth
+- **Git workflow:** Your specific branching strategy, PR requirements, deployment process
+- **Documentation needs:** API docs, compliance documentation, or minimal internal notes
+- **Domain-specific validations:** What should AI watch for in YOUR project type?
+
+**The framework works because you adapt it.** Generic guardrails fit no one perfectly. Customized guardrails make AI follow your exact engineering practices.
+
+See [ONBOARDING.md - Phase 3](./ONBOARDING.md#phase-3-customize-role-files-for-your-domain-1-2-hours) for detailed customization guide with concrete examples.
+
+---
+
 ## When to Use ATLAS
 
 **Perfect for:**
