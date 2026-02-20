@@ -61,19 +61,19 @@ Current Strategy Status (from ATLAS_STEPS files):
 
 **PART 1: Foundation (Steps -1 through 2)**
 - STEP -1: Platform Setup ✅ COMPLETE (2025-12-10)
-- STEP 0: Build Core Tools
-  - STEP_0_1: Feature A ✅ COMPLETE (2025-12-15)
-  - STEP_0_2: Feature B 🔄 IN_PROGRESS (AI3 on CP3 of 5)
-  - STEP_0_3: Feature C Core ⏸️ PLANNED
-- STEP 1: Validate on Customers
-  - STEP_1_1: First Customer ⏸️ PLANNED
-  - STEP_1_2-1_10: Next 9 customers ⏸️ PLANNED
+- STEP 0: Build Core Features
+  - STEP_0_1: User Dashboard ✅ COMPLETE (2025-12-15)
+  - STEP_0_2: Payment System 🔄 IN_PROGRESS (AI3 on CP3 of 5)
+  - STEP_0_3: Notification Service ⏸️ PLANNED
+- STEP 1: Launch Beta
+  - STEP_1_1: First Beta Users ⏸️ PLANNED
+  - STEP_1_2-1_10: Expand to 10 users ⏸️ PLANNED
 - STEP 2: Build Marketing Site ⏸️ PLANNED
 
 **PART 2: Scale (Steps 3-5)**
-- STEP 3: Scale Customers (10 → 25) ⏸️ PLANNED
-- STEP 4: Add Law Firm Vertical ⏸️ PLANNED
-- STEP 5: Launch Inspector SaaS ⏸️ PLANNED
+- STEP 3: Scale to 25 Active Users ⏸️ PLANNED
+- STEP 4: Add Premium Tier ⏸️ PLANNED
+- STEP 5: Launch Public v1.0 ⏸️ PLANNED
 
 **PART 3: Platform (Steps 6-10)**
 - All PLANNED (will be defined after Part 2 learnings)
@@ -81,15 +81,15 @@ Current Strategy Status (from ATLAS_STEPS files):
 **Overall progress:**
 - Steps complete: 2 of 10 (20%)
 - Substeps complete: 2 of 50+ (4%)
-- Current work: STEP_0_2 (Feature B, 60% done)
-- Next planned: STEP_0_3 (Feature C)
+- Current work: STEP_0_2 (Payment System, 60% done)
+- Next planned: STEP_0_3 (Notification Service)
 
 **Recent learnings (last 5):**
 1. Multi-tenant architecture pays off (STEP_0_1, STEP_0_2)
-2. Cross-vertical testing critical (caught customer assumptions)
+2. Early user testing critical (caught UX assumptions)
 3. Reusing infrastructure saves 30-40% setup time
-4. PageSpeed rate limits hit faster than expected
-5. Puppeteer patterns proven (use across tools)
+4. API rate limits require retry logic with exponential backoff
+5. Shared component patterns proven (use across features)
 ```
 
 ---
@@ -113,16 +113,16 @@ Enter number (1-6):
 
 ### Step 3: Load Substep-Specific Context (If Option 1)
 
-**Human selects: "Refine STEP_0_3 (Feature C Core)"**
+**Human selects: "Refine STEP_0_3 (Notification Service)"**
 
 **Usher loads additional context:**
 
 ```
 8. STEP_0_1 COMPLETION_SUMMARY (~800 lines, ~8K tokens, 8min)
-   Why: Feature A is related (both tools, might share patterns)
+   Why: User Dashboard is related (both use shared UI components)
 
 9. STEP_0_2 START_HERE.md (if exists - ~1,200 lines, ~12K tokens, 10min)
-   Why: Feature B is directly related (Feature C uses Cloner output)
+   Why: Payment System is related (Notification Service sends payment confirmations)
 
 10. STEP_0_3 current definition from steps/STEP_0.md (or relevant step file)
     Already loaded, re-read specific section (2min)
@@ -141,26 +141,26 @@ Running total: ~97K tokens (still under 100K)
 ```
 Current STEP_0_3 definition:
 
-#### STEP_0_3: Build Feature C Core
-**Target:** Vertical-agnostic engine + customer template
+#### STEP_0_3: Build Notification Service
+**Target:** Email and in-app notifications for key user events
 **Timeline:** 2 weeks
-**Focus:** Foundation for multi-vertical platform
+**Focus:** Reliable delivery with user preferences
 
 Let's make this more specific. I'll ask questions to refine.
 
 ---
 
-Q1: What exactly is "Feature C Core"?
+Q1: What exactly is "Notification Service"?
 
 Based on research:
-- Feature B (STEP_0_2) extracts content from sites
-- Feature C transforms extracted content into modern Next.js sites
-- "Core" means: Template system, component library, generation logic
+- Payment System (STEP_0_2) triggers events (payment success/failure)
+- Notification Service sends emails and in-app notifications for these events
+- "Service" means: Event handlers, template system, delivery infrastructure
 
 Should substep be:
-A) "Build template system (vertical-agnostic core + customer template)"
-B) "Build generation engine (content → Next.js) + customer template"
-C) "Build component library (universal) + template config system + customer template"
+A) "Build notification templates + email delivery system"
+B) "Build event-driven notification system with user preferences"
+C) "Build notification service (email + in-app) + delivery tracking"
 
 [Human chooses or refines]
 
@@ -168,15 +168,15 @@ C) "Build component library (universal) + template config system + customer temp
 
 Q2: What are the specific deliverables?
 
-Current says: "Vertical-agnostic engine + customer template"
+Current says: "Email and in-app notifications for key user events"
 
 More specific would be:
 "Deliverables:
-1. Universal component library (Button, Hero, Services, Contact, Footer - works for any vertical)
-2. Template configuration system (CLI tool: select vertical → applies vertical template)
-3. Customer template (blue/orange colors, trust-focused copy, lead-gen CTAs)
-4. Generation engine (takes Feature B output + template → generates Next.js project)
-5. Validation: Generated site builds without errors, matches design intent"
+1. Event handler system (listens to payment events, user actions, system events)
+2. Notification template engine (email templates + in-app notification formats)
+3. Delivery infrastructure (email provider integration + in-app notification storage)
+4. User preference management (opt-in/opt-out, notification frequency settings)
+5. Validation: Notifications sent within 30s, delivery tracked, user preferences respected"
 
 Is this correct? What would you add/change?
 
@@ -190,12 +190,12 @@ Current: Generic
 
 More specific:
 "Success criteria:
-- Component library: 15-20 universal components (proven on Feature A, Feature B)
-- Template system: Can switch customer ↔ law ↔ healthcare via config file
-- Customer template: Tested on 3 customer sites (HVAC, plumbing, electrical)
-- Generation engine: Takes Cloner JSON → produces Next.js project in <30 seconds
-- Output quality: Generated site Lighthouse 90+, WCAG AA, builds without errors
-- Multi-vertical proof: Same component library works for all 3 verticals"
+- Event handling: Listens to all payment events, user events, system events
+- Template system: 5-8 notification templates (payment success, payment failure, welcome, password reset, etc.)
+- Delivery reliability: 99%+ delivery rate, <30 second latency
+- User preferences: Users can opt-in/opt-out per notification type
+- Monitoring: Track delivery success/failure, bounce rates, open rates (email)
+- Integration: Works with both email provider (e.g., SendGrid) and in-app notification system"
 
 Does this capture requirements? Anything missing?
 
@@ -208,12 +208,12 @@ Q4: How should this be broken into substeps?
 Current: One substep (STEP_0_3)
 
 Could be split:
-- STEP_0_3_1: Build universal component library
-- STEP_0_3_2: Build template config system
-- STEP_0_3_3: Build customer template + validate
+- STEP_0_3_1: Build event handler system + notification templates
+- STEP_0_3_2: Build delivery infrastructure (email + in-app)
+- STEP_0_3_3: Build user preference management + monitoring
 
 Or stay as one:
-- STEP_0_3: All in one (component library + template system + customer template)
+- STEP_0_3: All in one (event handlers + templates + delivery + preferences)
 
 Given 2 week estimate, is one substep manageable or should we split?
 
@@ -224,15 +224,15 @@ Given 2 week estimate, is one substep manageable or should we split?
 Q5: What risks should we call out?
 
 From STEP_0_1, STEP_0_2 learnings:
-- Template system complexity (could over-engineer - keep simple)
-- Customer-specific assumptions (test universality early)
-- Component library scope creep (limit to 15-20, not 50)
+- Email deliverability complexity (could over-engineer - start simple)
+- Third-party provider dependency (SendGrid, Mailgun, etc. may have downtime)
+- Template scope creep (limit to 5-8 core notification types)
 
 Should document:
 "Risks:
-- Over-engineering template system (mitigation: start with 2 verticals, not 5)
-- Customer bias in 'universal' components (mitigation: test on law firm mock in CP3)
-- Scope creep on components (mitigation: hard cap at 20 components, defer extras)"
+- Over-engineering delivery infrastructure (mitigation: start with one provider, add redundancy later)
+- Provider downtime affecting user experience (mitigation: implement retry queue, monitor delivery)
+- Scope creep on notification types (mitigation: hard cap at 8 types, defer extras to STEP_3)"
 
 Anything else?
 
@@ -248,65 +248,64 @@ Anything else?
 **Usher drafts update:**
 
 ```markdown
-#### STEP_0_3: Build Feature C Core
+#### STEP_0_3: Build Notification Service
 
 **Status:** ⏸️ PLANNED
 **Timeline:** 2 weeks (estimated)
-**Focus:** Multi-vertical foundation (universal components + template system + customer template)
+**Focus:** Reliable event-driven notifications (email + in-app + user preferences)
 
 **Objective:**
-Build the core Feature C: universal component library (works for any vertical), template configuration system (select vertical → apply template), and customer template (first vertical validation).
+Build the Notification Service: event handler system (listens to payment/user/system events), notification template engine, delivery infrastructure (email + in-app), and user preference management.
 
 **Deliverables:**
-1. **Universal Component Library** (15-20 components)
-   - Button, Hero, Services, About, Contact, Footer, Card, Form, etc.
-   - Works for customer, law, healthcare (vertical-agnostic)
-   - Accessible (WCAG AA), performant (<2s), responsive
+1. **Event Handler System**
+   - Listens to: Payment events, user signup/login, password resets, system alerts
+   - Event queue with retry logic (handle failures gracefully)
+   - Extensible (easy to add new event types)
 
-2. **Template Configuration System** (CLI tool or config file)
-   - Input: Vertical selection (customer / law / healthcare)
-   - Output: Applies vertical-specific colors, copy, CTAs
-   - Easily extensible (add new vertical = add config file)
+2. **Notification Template Engine** (5-8 core templates)
+   - Email templates: Payment success, payment failure, welcome, password reset, invoice ready
+   - In-app notification formats: Toast, banner, inbox message
+   - Template variables: User name, transaction details, action links
 
-3. **Customer Template** (first vertical)
-   - Colors: Blue/orange (trust-focused)
-   - Copy: Lead generation emphasis ("Get more calls, more jobs")
-   - CTAs: Phone click-to-call, contact forms
-   - Tested on: 3 customer sites (HVAC, plumbing, electrical)
+3. **Delivery Infrastructure**
+   - Email: Integration with provider (e.g., SendGrid, Mailgun)
+   - In-app: Real-time notification storage + delivery via WebSocket or polling
+   - Delivery tracking: Success/failure, bounce handling, retry queue
 
-4. **Generation Engine** (content → Next.js)
-   - Input: Feature B output JSON (from STEP_0_2)
-   - Process: Component library + template config → Next.js project
-   - Output: Deployable Next.js site (builds without errors)
-   - Performance: <30 second generation time
+4. **User Preference Management**
+   - Opt-in/opt-out per notification type (email, in-app, both)
+   - Notification frequency settings (immediate, daily digest, weekly)
+   - User-facing preferences UI (settings page)
+   - Respects preferences in delivery logic
 
 **Success Criteria:**
-- [ ] 15-20 universal components built and tested
-- [ ] Template config system works (switch customer ↔ law ↔ healthcare)
-- [ ] Customer template validated (tested on 3 customer sites)
-- [ ] Generation engine works (Cloner output → Next.js project)
-- [ ] Output quality: Lighthouse 90+, WCAG AA, builds clean
-- [ ] Multi-vertical proof: Components work for all 3 verticals (tested with mock law/healthcare)
+- [ ] Event handlers work for all event types (payment, user, system)
+- [ ] 5-8 notification templates built and tested (email + in-app)
+- [ ] Email delivery: 99%+ delivery rate, <30s latency
+- [ ] In-app delivery: Real-time or <10s polling latency
+- [ ] User preferences: Opt-in/opt-out works, settings persist
+- [ ] Monitoring: Track delivery success/failure, bounce rates, retry queue depth
 
 **Could split into sub-substeps if needed:**
-- STEP_0_3_1: Component library
-- STEP_0_3_2: Template system + customer template
-- STEP_0_3_3: Generation engine + validation
+- STEP_0_3_1: Event handlers + notification templates
+- STEP_0_3_2: Delivery infrastructure (email + in-app)
+- STEP_0_3_3: User preferences + monitoring
 
 **Decision:** Keep as one substep (2 weeks manageable, logical unit)
 
 **Risks:**
-- Template system over-engineering (mitigation: start simple, 2 verticals only)
-- Customer assumptions in "universal" components (mitigation: test on law mock early)
-- Scope creep (mitigation: hard cap 20 components, defer extras to future)
+- Over-engineering delivery infrastructure (mitigation: start with one provider, add redundancy later)
+- Provider downtime affecting user experience (mitigation: retry queue, monitor delivery rates)
+- Scope creep on notification types (mitigation: hard cap 8 types, defer extras to STEP_3)
 
 **Dependencies:**
-- Requires: STEP_0_2 complete (Feature B provides input data format)
-- Enables: STEP_1_X (customer delivery uses Feature C)
+- Requires: STEP_0_2 complete (Payment System triggers payment events)
+- Enables: STEP_1_X (beta users receive notifications)
 
 **Hypotheses:**
-- H1: Universal components can serve customer, law, healthcare (test in CP validation)
-- H2: Template config approach is flexible enough (vs hardcoded per vertical)
+- H1: Event-driven architecture handles all notification types (test in CP validation)
+- H2: Single email provider is reliable enough (vs multi-provider redundancy)
 
 **Updated:** 2025-12-11 (refined with Usher Mode 2)
 **Reason:** Made outcomes very specific (was vague), added risks, clarified success criteria
@@ -331,15 +330,15 @@ Build the core Feature C: universal component library (works for any vertical), 
 **Usher adds to DECISION_LOG.md:**
 
 ```markdown
-## 2025-12-11: Refined STEP_0_3 Definition (Feature C)
+## 2025-12-11: Refined STEP_0_3 Definition (Notification Service)
 
-**Context:** STEP_0_3 was vague ("Build rebuild engine core"). Before AI1 starts research, refined with human to make very specific.
+**Context:** STEP_0_3 was vague ("Build notification service"). Before AI1 starts research, refined with human to make very specific.
 
 **Changes made:**
-- Added specific deliverables (4 distinct outputs: components, template system, customer template, generation engine)
-- Added measurable success criteria (15-20 components, Lighthouse 90+, multi-vertical validated)
-- Added risks (over-engineering, customer bias, scope creep) with mitigations
-- Clarified dependencies (needs STEP_0_2 Cloner output format)
+- Added specific deliverables (4 distinct outputs: event handlers, templates, delivery infrastructure, user preferences)
+- Added measurable success criteria (99%+ delivery rate, <30s latency, user preference support)
+- Added risks (over-engineering, provider downtime, scope creep) with mitigations
+- Clarified dependencies (needs STEP_0_2 Payment System event triggers)
 
 **Rationale:**
 - Vague substeps waste AI1 time (research what's already decided)
