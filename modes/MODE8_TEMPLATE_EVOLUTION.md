@@ -132,15 +132,15 @@ Impact: Prevents 18-hour delays × future Efforts
 From 10 COMPLETION_SUMMARYs:
 
 Found (7 of 10 Efforts):
-"Cross-vertical testing revealed assumptions"
+"Diverse scenario testing revealed edge cases"
 
 Current template state:
-- CP_GUIDE_TEMPLATE final CP has "comprehensive testing" but doesn't specify cross-vertical
+- CP_GUIDE_TEMPLATE final CP has "comprehensive testing" but doesn't specify diverse scenarios
 
 Suggested improvement:
-- Add to final CP template: "If multi-vertical tool: Test on contractor, law, healthcare sites (minimum 3 per vertical). Validate universal (not vertical-specific assumptions)."
+- Add to final CP template: "If payment/auth feature: Test diverse scenarios (success, failure, 3D Secure, refunds). If API integration: Test rate limits, timeouts, error responses. Validate all edge cases (not just happy path)."
 
-Impact: Catches contractor bias early (before production)
+Impact: Catches edge cases early (before production)
 ```
 
 ---
