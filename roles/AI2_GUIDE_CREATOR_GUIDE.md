@@ -327,10 +327,10 @@ Typical counts:
 - Manual testing (feature works as expected)
 
 **CP4 (final):**
-- Cross-vertical testing (clone 10 diverse sites: contractor, law, healthcare, restaurant, etc.)
-- Performance testing (cloning completes in <5 min per site)
-- Output validation (generated site matches original visually)
-- Deployment testing (tool.yourdomain.com works end-to-end)
+- Diverse scenario testing (test 10+ scenarios: card success, decline, 3D Secure, refunds, subscriptions, etc.)
+- Performance testing (payment processing <500ms, webhook handling <1s)
+- Security validation (PCI compliance, webhook signatures verified)
+- Deployment testing (app.yourdomain.com/checkout works end-to-end)
 
 ---
 
@@ -1279,9 +1279,9 @@ EOF
 
 ## What We're Building
 
-Universal website cloner. Input: any site URL. Output: Next.js project matching original.
-Works for contractors, law firms, healthcare (multi-vertical).
-Built to enable proactive demos (clone prospect's site, rebuild better, show them).
+Payment processing system. Input: payment request. Output: successful charge + receipt.
+Works for one-time payments, subscriptions, refunds (diverse scenarios).
+Built to enable secure, reliable payment collection for SaaS product.
 
 ---
 
@@ -1306,13 +1306,13 @@ Built to enable proactive demos (clone prospect's site, rebuild better, show the
 
 ## Key Things to Watch
 
-**Multi-vertical compatibility:**
-- MUST test on contractor, law firm, healthcare sites (not just one type)
-- Scoring/layout might vary per vertical (validate universal approach)
+**Diverse scenario compatibility:**
+- MUST test success, decline, 3D Secure, refunds (not just happy path)
+- Card types vary (Visa, Mastercard, Amex, international - validate all work)
 
-**Puppeteer performance:**
-- Scraping can be slow (optimize: parallel asset download, smart caching)
-- Memory usage (Vercel limit: 1GB - configure in vercel.json)
+**Webhook reliability:**
+- Processing can be slow (optimize: async background jobs, retry queue)
+- Signature verification (critical for security - must verify all webhooks)
 
 **Copyright/licensing:**
 - Cloned images might be copyrighted (handle carefully - note in legal disclaimer)
@@ -1331,10 +1331,10 @@ Built to enable proactive demos (clone prospect's site, rebuild better, show the
 - Build validation (npm run build succeeds)
 
 **CP4 (comprehensive):**
-- Clone 10 diverse sites (contractor, law, healthcare, restaurant, etc.)
-- Validate output matches original (visual comparison)
-- Performance test (<5 min per clone)
-- Deploy to production (tool.yourdomain.com)
+- Test 10+ payment scenarios (success, decline, 3D Secure, refunds, subscriptions, etc.)
+- Validate webhooks process correctly (signature verification, async handling)
+- Performance test (<500ms payment, <1s webhook)
+- Deploy to production (app.yourdomain.com/checkout)
 
 ---
 
@@ -1468,35 +1468,35 @@ None currently (Effort hasn't started execution).
 
 ## Overview
 
-Build universal website cloning tool that scrapes any SMB site (contractor, law, healthcare) and generates equivalent Next.js project.
+Build payment processing system that accepts payments (one-time, subscriptions, refunds) and handles webhooks reliably.
 
-Enables [YourCompany]'s proactive demo wedge: Clone prospect's site, rebuild better, show them in meeting.
+Enables [YourCompany]'s monetization: Collect payments from users, process subscriptions, handle billing.
 
-Part of platform foundation (STEP 1: Build Platform Tools).
+Part of platform foundation (STEP 0: Build Core Features).
 
 ---
 
 ## Goals
 
 **Primary:**
-Build working site cloner deployed at tool.yourdomain.com
+Build working payment system deployed at app.yourdomain.com/checkout
 
 **Secondary:**
-- Prove tool works across verticals (contractor, law, healthcare)
-- Validate cloning speed (<5 min per site)
-- Establish patterns for content extraction (reusable in Notification Service)
+- Prove system works across scenarios (one-time, subscriptions, refunds, 3D Secure)
+- Validate payment speed (<500ms processing time)
+- Establish patterns for webhook handling (reusable in Notification Service)
 
 ---
 
 ## Success Criteria
 
-- [ ] Can clone any WordPress site (80% of SMB sites)
-- [ ] Output is Next.js project (builds without errors)
-- [ ] Visual fidelity 80%+ (looks like original)
-- [ ] Works across 3 verticals (contractor, law, healthcare tested)
-- [ ] Performance: <5 min per clone
-- [ ] Deployed: tool.yourdomain.com
-- [ ] Multi-tenant architecture (stores clones in database)
+- [ ] Accepts all major card types (Visa, Mastercard, Amex, Discover)
+- [ ] Supports subscriptions (monthly/annual billing with plan changes)
+- [ ] Webhook reliability 99%+ (signature verification, async processing)
+- [ ] Works across diverse scenarios (success, decline, 3D Secure, refunds tested)
+- [ ] Performance: <500ms payment processing, <1s webhook handling
+- [ ] Deployed: app.yourdomain.com/checkout
+- [ ] Multi-tenant architecture (transaction isolation via RLS)
 
 ---
 
