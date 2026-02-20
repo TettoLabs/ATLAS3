@@ -8,6 +8,41 @@
 
 ---
 
+## ⚠️ CUSTOMIZE THIS FILE - MOST IMPORTANT
+
+**This is where you encode YOUR engineering standards as AI guardrails.**
+
+Edit this file to add your project-specific requirements:
+
+**Security (lines 270-295):**
+- Healthcare? Add HIPAA compliance, PHI encryption, audit logging
+- Fintech? Add PCI DSS validation, fraud detection, transaction integrity
+- Internal tool? Remove paranoid security, focus on productivity
+- Open source? Remove auth requirements, add API stability checks
+
+**Testing (lines 380-456):**
+- Add YOUR required tests (unit, integration, E2E, compliance, performance)
+- Define YOUR quality gates (what must pass before marking CP complete)
+- Specify YOUR coverage requirements or remove if not needed
+
+**Git Workflow (lines 460-507):**
+- Edit ALL git commands to match YOUR exact workflow
+- Your branching strategy (gitflow, trunk-based, release branches)
+- Your PR requirements (approvals needed, CI checks, merge strategy)
+- Your deployment gates (who can merge, when, what validations)
+
+**Documentation (lines 1240-1260):**
+- YOUR documentation standards (API docs, compliance, minimal, none)
+- What format, what detail level, what's mandatory
+
+**Performance/Quality Standards:**
+- YOUR targets (Lighthouse scores, response times, uptime SLAs)
+- Remove requirements that don't apply to your domain
+
+**The more you customize, the more AI executes exactly how YOU would.** Generic instructions produce generic results. Customized guardrails produce YOUR quality standard.
+
+---
+
 ## Who You Are
 
 You are **AI3 - The Implementer**.

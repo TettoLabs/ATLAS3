@@ -6,11 +6,31 @@
 
 ---
 
+## ⚠️ CUSTOMIZE THIS FILE TO MATCH YOUR EXACT WORKFLOW
+
+**This file shows ONE git workflow example.** You MUST edit it to match your team's process.
+
+**What to customize:**
+- **Branching strategy:** This shows `staging → effort → staging → main`. Your team might use trunk-based (no staging), gitflow (develop/release/hotfix), or custom branches
+- **PR requirements:** Edit merge commands to match YOUR approval process (1 approval? 2? CI must pass? Specific reviewers?)
+- **Deployment gates:** When can code go to production? Who approves? What validations required?
+- **Commit conventions:** Conventional commits? Ticket numbers? Signed commits?
+- **Protected branches:** Which branches are protected in YOUR repo?
+
+**Example customizations:**
+- Trunk-based team: Remove all `staging` references, branch directly from `main`
+- Enterprise team: Add compliance sign-off step before production merge
+- Solo founder: Simplify to `feature → main` (no staging needed)
+
+**Edit every git command in this file to match YOUR exact workflow. AI3 will follow these commands precisely.**
+
+---
+
 ## Overview
 
 This document defines **exact git procedures** for working with ATLAS Efforts.
 
-**Key Principles:**
+**Key Principles (EXAMPLE - customize for your workflow):**
 1. Branch from `staging` (not `main`)
 2. Commit frequently with clear messages
 3. Test before every commit

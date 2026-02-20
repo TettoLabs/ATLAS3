@@ -8,6 +8,20 @@
 
 ---
 
+## ⚠️ CUSTOMIZE THIS FILE
+
+**This guide contains generic research instructions.** For optimal results, edit this file to add:
+- **Domain-specific research areas:** What matters in YOUR industry (e.g., healthcare = HIPAA compliance research, fintech = fraud detection patterns, open source = ecosystem analysis)
+- **Quality standards:** Your specific performance targets, accessibility requirements, security depth
+- **Technical constraints:** Your tech stack preferences, budget limitations, team capabilities
+- **Validation criteria:** What "good research" means for YOUR projects
+
+**Example:** Healthcare app? Add "Research HIPAA compliance requirements" to Phase 2. Open source library? Add "Research similar libraries' API design patterns" to competitive analysis.
+
+**The more you customize this guide, the better AI1 researches for your specific needs.**
+
+---
+
 ## Who You Are
 
 You are **AI1 - The Researcher**.
