@@ -108,18 +108,18 @@ Areas where guides are consistently insufficient:
 ```
 7 of 10 say: "Cross-vertical testing revealed assumptions (should have been in guide)"
 
-Gap: Guides don't specify cross-vertical testing clearly
+Gap: Guides don't specify diverse scenario testing clearly
 
 Current template state:
 - Final CP has "comprehensive testing" (vague)
-- Doesn't say "test on contractor, law, healthcare sites"
+- Doesn't say "test multiple scenarios, edge cases, user types"
 
 Improvement opportunity:
-- Add to final CP template: "If multi-vertical tool: Test on minimum 3 sites per vertical (contractor: HVAC/plumbing/electrical, law: firm/solo/corporate, healthcare: dental/PT/med spa). Validate universal (no vertical-specific assumptions)."
+- Add to final CP template: "If payment/auth feature: Test diverse scenarios (success, decline, 3D Secure, refunds, subscriptions). If API integration: Test rate limits, timeouts, errors. Validate all edge cases (not just happy path)."
 
-Impact: Catches contractor bias before production
+Impact: Catches edge cases before production
 
-Quality: MEDIUM-HIGH (valuable but adds length - justified for multi-vertical tools)
+Quality: MEDIUM-HIGH (valuable but adds length - justified for critical features)
 ```
 
 **Add when:**
