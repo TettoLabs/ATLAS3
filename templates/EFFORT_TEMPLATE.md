@@ -69,7 +69,7 @@ This template defines effort.md (high-level Effort overview).
 - [ ] Performance: [Specific target - <2s mobile, Lighthouse 90+, etc.]
 - [ ] Accessibility: [WCAG AA, zero critical errors]
 - [ ] Security: [No vulnerabilities, secrets secured]
-- [ ] Multi-vertical: [If applicable - works for contractor, law, healthcare]
+- [ ] Diverse scenarios: [If applicable - tested with multiple use cases, edge cases, user types]
 - [ ] Reliability: [Uptime target, error rate target]
 
 **Deployment:**

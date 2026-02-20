@@ -223,7 +223,7 @@ CPX (Testing & Deploy)
 - **E2E testing:** [Specific flows to test end-to-end]
 - **Performance:** [Lighthouse 90+, <2s mobile, specific targets]
 - **Accessibility:** [WCAG AA, axe DevTools scan, zero critical errors]
-- **Cross-vertical:** [If applicable - test on contractor, law, healthcare sites]
+- **Diverse scenarios:** [If applicable - test multiple use cases, edge cases, user types, payment scenarios]
 - **Security:** [No secrets, no vulnerabilities, input validation]
 - **Load testing:** [If applicable - can handle expected traffic]
 - **Staging validation:** [Full manual test on deployed staging environment]

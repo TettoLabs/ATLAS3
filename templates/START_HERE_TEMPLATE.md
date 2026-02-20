@@ -291,16 +291,16 @@ BUT: "Multi-tenant website audit tool with:
   - SEO: Meta tags, structured data, sitemap presence
   - Mobile: Viewport config, touch targets, responsive design
   - Accessibility: WCAG automated scan (color contrast, alt text, labels)
-  - Security: HTTPS, security headers, known vulnerabilities
-- **Scoring:** Weighted A-F grade (40% performance, 25% SEO, 20% mobile, 10% a11y, 5% security)
-- **Report:** Professional 2-page PDF (branded, recommendations, before/after comparison)
-- **Delivery:** Email via Resend (<30 second delivery, with download link)
-- **Multi-vertical:** Works for contractor, law, healthcare (tested on 10+ sites per vertical)
-- **Performance:** <2 min per analysis (target: <90 seconds)
-- **Architecture:** Next.js 15 + Supabase multi-tenant (RLS for isolation) + Vercel serverless
-- **Deployment:** tool.yourdomain.com (subdomain)
-- **Lead capture:** Email collection, stored in customers table
-- **Monitoring:** Vercel analytics, error tracking, usage metrics
+  - Webhooks: Real-time event processing for payment success/failure, subscription updates
+- **Payments:** One-time charges (credit/debit cards, ACH, Apple Pay, Google Pay)
+- **Subscriptions:** Monthly/annual billing with plan changes, proration, cancellations
+- **Security:** PCI DSS compliant, webhook signature verification, encrypted transaction data
+- **Diverse scenarios:** Tested with US cards, international cards, 3D Secure, declines, refunds
+- **Performance:** <500ms payment processing, <1s webhook handling (async background jobs)
+- **Architecture:** Next.js 15 + Stripe API + Supabase multi-tenant (RLS for transaction isolation)
+- **Deployment:** app.yourdomain.com/checkout
+- **Transaction history:** User dashboard with all payments, subscriptions, invoices
+- **Monitoring:** Stripe dashboard, Vercel analytics, error tracking, webhook success rates
 - **Cost target:** <$200/mo at 100 audits/day"
 
 ---
