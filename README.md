@@ -205,7 +205,7 @@ Next Substep AI1 Reads COMPLETION_SUMMARY
 
 **Current:** v3.0
 **Status:** Structured framework (clean installation)
-**Designed for:** Companies pursuing $1M+ ARR (requires disciplined execution)
+**Designed for:** Complex software projects requiring systematic execution discipline (any scale, commercial or non-commercial)
 
 ---
 

@@ -166,15 +166,15 @@ Extract:
 How specific is the substep definition?
 
 Level 1 - Vague (needs heavy research):
-  "Build payment system"
+  e.g., "Build payment system"
   → 80% research needed (which provider? what features? how? tech stack?)
 
 Level 2 - Medium (needs moderate research):
-  "Build payment system with Stripe integration and subscription support"
+  e.g., "Build payment system with Stripe integration and subscription support"
   → 50% research (validate approach, find patterns, identify gotchas)
 
 Level 3 - Specific (needs validation):
-  "Build payment system: Stripe integration, multi-tenant database, webhook handling, subscription management, one-time payments, email receipts"
+  e.g., "Build payment system: Stripe integration, multi-tenant database, webhook handling, subscription management, one-time payments, email receipts"
   → 20% research (validate this approach, check for issues, confirm feasibility)
 
 Your research depth adapts to specificity.

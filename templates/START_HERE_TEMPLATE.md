@@ -280,20 +280,21 @@ This template defines the structure for START_HERE.md (AI1's primary deliverable
 
 ### Outcome 3: [If applicable]
 
+---
+
+## EXAMPLE: Payment System Implementation Outcomes
+*This example shows the level of specificity needed. Your outcomes will be similarly detailed but for your specific feature.*
+
+---
+
 **Example of good specificity:**
 
-NOT: "Build audit tool"
+NOT: "Build payment system"
 
-BUT: "Multi-tenant website audit tool with:
-- **Input:** Any website URL (validates format: http/https, checks reachability)
-- **Analysis:** 5 metrics scored 0-100 each
-  - Performance: PageSpeed Insights API (mobile + desktop)
-  - SEO: Meta tags, structured data, sitemap presence
-  - Mobile: Viewport config, touch targets, responsive design
-  - Accessibility: WCAG automated scan (color contrast, alt text, labels)
-  - Webhooks: Real-time event processing for payment success/failure, subscription updates
+BUT: "Multi-tenant payment processing system with:
 - **Payments:** One-time charges (credit/debit cards, ACH, Apple Pay, Google Pay)
 - **Subscriptions:** Monthly/annual billing with plan changes, proration, cancellations
+- **Webhooks:** Real-time event processing for payment success/failure, subscription updates
 - **Security:** PCI DSS compliant, webhook signature verification, encrypted transaction data
 - **Diverse scenarios:** Tested with US cards, international cards, 3D Secure, declines, refunds
 - **Performance:** <500ms payment processing, <1s webhook handling (async background jobs)
@@ -301,7 +302,9 @@ BUT: "Multi-tenant website audit tool with:
 - **Deployment:** app.yourdomain.com/checkout
 - **Transaction history:** User dashboard with all payments, subscriptions, invoices
 - **Monitoring:** Stripe dashboard, Vercel analytics, error tracking, webhook success rates
-- **Cost target:** <$200/mo at 100 audits/day"
+- **Cost target:** <$500/mo at 1,000 transactions/day"
+
+---
 
 ---
 

@@ -1265,15 +1265,22 @@ EOF
 
 **Template:** `/ATLAS3/templates/OVERVIEW_GUIDE_TEMPLATE.md`
 
+---
+
+## EXAMPLE: Payment System OVERVIEW_GUIDE
+*The following is an illustrative example showing what an OVERVIEW_GUIDE looks like for a payment processing feature. Your OVERVIEW_GUIDE will have similar structure but different technical content based on your specific project.*
+
+---
+
 **Contents:**
 ```markdown
 # Overview Guide - STEP_1_2 Payment System
 
 **Quick-Start for AI3**
 
-**What:** Universal site cloning tool (scrapes any SMB site, generates Next.js rebuild)
+**What:** Payment processing system with Stripe integration
 **Duration:** 10 days (5 checkpoints)
-**Tech:** Next.js + Puppeteer + Supabase + Vercel
+**Tech:** Next.js + Stripe + Supabase + Vercel
 
 ---
 

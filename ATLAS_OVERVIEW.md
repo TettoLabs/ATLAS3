@@ -904,11 +904,11 @@ CP4: Testing & Deploy (1 day)
 ```
 CP0: Setup (4h)
 CP1: Component Library (2 days)
-CP2: Contractor Template (2 days)
-CP3: Law Firm Template (2 days)
-CP4: Healthcare Template (2 days)
-CP5: Template Config System (1 day)
-CP6: Cross-Vertical Testing (1 day)
+CP2: Variant A Implementation (2 days) [e.g., customer segment, feature tier, or use case]
+CP3: Variant B Implementation (2 days)
+CP4: Variant C Implementation (2 days)
+CP5: Variant Config System (1 day)
+CP6: Cross-Scenario Testing (1 day) [e.g., test all variants, user types, edge cases]
 CP7: Deployment & Docs (1 day)
 ```
 

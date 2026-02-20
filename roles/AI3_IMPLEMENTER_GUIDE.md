@@ -909,6 +909,13 @@ EOF
 
 **Required sections:**
 
+---
+
+## EXAMPLE: Payment System COMPLETION_SUMMARY
+*The following shows what a COMPLETION_SUMMARY looks like for a payment processing feature. Your summary will follow this structure but contain details specific to your project.*
+
+---
+
 **1. What Was Built**
 ```markdown
 ## What Was Built

@@ -15,7 +15,7 @@
 **After this guide:**
 - ATLAS3 configured for your company
 - Ready to execute first substep
-- Provides structure for pursuing $1M+ ARR with systematic execution
+- Provides structure for systematic execution at any scale (commercial or non-commercial)
 
 ---
 
