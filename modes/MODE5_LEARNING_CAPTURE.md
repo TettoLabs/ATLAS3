@@ -73,49 +73,49 @@ Total: ~1,500-2,000 lines, ~29K tokens, ~18 min
 **Usher creates 3-5 entries:**
 
 ```markdown
-## 2025-12-20: STEP_0_2_SITE_CLONER - Parallel I/O 5x Faster Than Sequential
+## 2025-12-20: STEP_0_2_PAYMENT_SYSTEM - Async Webhook Processing 8x Faster Than Sync
 
-**Context:** Building Site Cloner tool, needed to download 50+ assets per cloned site.
+**Context:** Building Payment System, needed to process 50+ webhook events per minute during peak usage.
 
-**Discovery:** Parallel asset downloads (Promise.all with concurrency limit: 10) completed in 90 seconds vs sequential download taking 8 minutes.
+**Discovery:** Async webhook processing (background job queue) completed in <1 second vs synchronous processing taking 8+ seconds (causing timeouts).
 
 **Evidence:**
-- Sequential: 50 images × 10s average = 500s (8.3 minutes)
-- Parallel (10 concurrent): 50 images / 10 batches × 9s per batch = 90 seconds
-- 5.5x performance improvement
+- Synchronous: 50 webhooks × 8s average = 400s (Stripe timeout at 5s, failures)
+- Async (background queue): Webhook endpoint returns in <100ms, processing happens async
+- 80x improvement in endpoint response time, 100% reliability
 
 **Implications:**
 - **Strategy:** Not applicable (tactical optimization, not strategic)
-- **Execution:** Make parallel I/O the default pattern for all future Efforts (network, file system)
-- **Future Efforts:** Start with parallelization (don't optimize sequentially first, then refactor)
+- **Execution:** Make async webhook handling the default pattern for all future Efforts (webhooks, events)
+- **Future Efforts:** Start with async patterns (don't build synchronous first, then refactor)
 
 **Actions Taken:**
-- [x] Updated AI3_DEVELOPER_BEST_PRACTICES.md (added "Parallelize I/O" section)
+- [x] Updated AI3_DEVELOPER_BEST_PRACTICES.md (added "Async Webhook Handling" section)
 - [x] Documented pattern in STEP_0_2 COMPLETION_SUMMARY (reusable code reference)
-- [ ] Apply in STEP_0_3 (Rebuild Engine will need asset handling - use parallel pattern)
+- [ ] Apply in STEP_0_3 (Notification Service will need event handling - use async pattern)
 
 ---
 
-## 2025-12-20: STEP_0_2 - Cross-Vertical Testing Catches Assumptions Early
+## 2025-12-20: STEP_0_2 - Diverse Scenario Testing Catches Edge Cases Early
 
-**Context:** Testing Site Cloner on diverse sites (contractor, law, healthcare).
+**Context:** Testing Payment System with diverse payment scenarios (card success, decline, 3D Secure, refunds).
 
-**Discovery:** Law firm sites use different color schemes (navy/gray vs contractor blue/orange). Universal color detection algorithm initially failed for law firms (hardcoded blue extraction).
+**Discovery:** 3D Secure authentication redirect handling initially failed for European cards. Webhook signature verification initially failed to handle replay attacks.
 
 **Evidence:**
-- Tested on 10 contractor sites: 100% success
-- Tested on 3 law firm sites: 2 of 3 failed (color scheme incorrect)
-- Fixed universal color detection: All sites now work (tested on 15 diverse sites)
+- Tested with 10 US cards: 100% success
+- Tested with 3 EU cards (3D Secure required): 2 of 3 failed (redirect not handled properly)
+- Fixed redirect handling + added replay protection: All scenarios now work (tested 15+ payment types)
 
 **Implications:**
-- **Strategy:** Cross-vertical testing is CRITICAL, not optional. Must be in every tool Effort.
-- **Execution:** Test on all 3 verticals (contractor, law, healthcare) in CP3-4 (not just final CP)
-- **Future Efforts:** Add "cross-vertical validation" to all multi-vertical tool success criteria
+- **Strategy:** Comprehensive scenario testing is CRITICAL, not optional. Must be in every payment/auth Effort.
+- **Execution:** Test all edge cases (success, decline, 3D Secure, refunds, webhooks) in CP3-4 (not just final CP)
+- **Future Efforts:** Add "diverse scenario validation" to all payment/auth success criteria
 
 **Actions Taken:**
-- [x] Made cross-vertical testing mandatory in Rebuild Engine planning (STEP_0_3)
-- [x] Updated ATLAS_STEPS success criteria (all tools must validate on 3 verticals)
-- [x] Fixed color detection (now universal)
+- [x] Made comprehensive scenario testing mandatory in Notification Service planning (STEP_0_3)
+- [x] Updated ATLAS_STEPS success criteria (all payment/auth features must validate edge cases)
+- [x] Fixed 3D Secure handling and webhook replay protection (now production-ready)
 
 ---
 
@@ -130,10 +130,10 @@ Total: ~1,500-2,000 lines, ~29K tokens, ~18 min
 ```
 Extracted 4 learning entries from STEP_0_2 COMPLETION_SUMMARY.
 
-Entry 1: Parallel I/O 5x faster
-Entry 2: Cross-vertical testing catches assumptions
+Entry 1: Async webhook processing 8x faster
+Entry 2: Diverse scenario testing catches edge cases
 Entry 3: Reusing infrastructure saves 30% setup time
-Entry 4: Template system complexity risk (over-engineering)
+Entry 4: Database connection pool optimization critical for scale
 
 Review each:
 1. Approve as-is
@@ -177,12 +177,12 @@ git push
 Learning capture complete.
 
 Added to LEARNINGS_LOG.md:
-- 4 entries from STEP_0_2 (Site Cloner)
-- Tagged: technical, multi-vertical, performance, infrastructure
+- 4 entries from STEP_0_2 (Payment System)
+- Tagged: technical, async-processing, edge-cases, infrastructure
 
 Total learnings: 18 entries (across 3 completed Efforts)
 
-Next: These learnings will inform AI1's research for STEP_0_3 (Rebuild Engine)
+Next: These learnings will inform AI1's research for STEP_0_3 (Notification Service)
 ```
 
 ---
