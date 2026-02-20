@@ -186,10 +186,10 @@ BUT: "Multi-tenant audit tool with API integration, scoring A-F, PDF export, ema
 - Database multi-tenant patterns (check previous projects or documentation for examples)
 - Database schema (audits table structure, indexes)
 
-**CP1 (Analysis) guide needs:**
-- PageSpeed API integration (rate limits: 100/day free, pagination, error handling)
-- Scoring algorithm design (how to combine 6 metrics into A-F grade?)
-- Multi-vertical testing approach (ensure works for contractor, law, healthcare)
+**CP1 (Core Feature) guide needs:**
+- Stripe API integration (rate limits, authentication, error handling)
+- Payment flow design (one-time vs subscriptions, card handling)
+- Diverse scenario testing approach (ensure works for success, decline, 3D Secure, refunds)
 
 **CP2 (Reports) guide needs:**
 - Puppeteer on Vercel (memory config: 1GB, cold start issues)
@@ -492,9 +492,9 @@ Estimated: 2 days implementation
 
 ## Key Things to Watch
 
-- PageSpeed API: 100/day free tier (might hit limit)
-- Puppeteer: Needs 1GB memory on Vercel
-- Multi-vertical: Test on contractor, law, healthcare sites
+- Stripe API: Webhook signature verification (security critical)
+- 3D Secure: Redirect handling can be complex
+- Diverse scenarios: Test success, decline, 3D Secure, refunds, webhooks
 
 ---
 
