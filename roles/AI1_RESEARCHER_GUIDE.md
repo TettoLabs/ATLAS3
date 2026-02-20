@@ -166,15 +166,15 @@ Extract:
 How specific is the substep definition?
 
 Level 1 - Vague (needs heavy research):
-  "Build audit engine"
-  → 80% research needed (what kind? for who? how? tech stack?)
+  "Build payment system"
+  → 80% research needed (which provider? what features? how? tech stack?)
 
 Level 2 - Medium (needs moderate research):
-  "Build audit engine with PageSpeed API and PDF reports"
+  "Build payment system with Stripe integration and subscription support"
   → 50% research (validate approach, find patterns, identify gotchas)
 
 Level 3 - Specific (needs validation):
-  "Build audit engine: API integration, multi-tenant database, PDF generation, structured scoring, email delivery, works across customer segments"
+  "Build payment system: Stripe integration, multi-tenant database, webhook handling, subscription management, one-time payments, email receipts"
   → 20% research (validate this approach, check for issues, confirm feasibility)
 
 Your research depth adapts to specificity.
@@ -299,17 +299,17 @@ Document in START_HERE:
 
 **A. Validate recommended approach (1-2 hours)**
 ```
-Substep says: "Use PageSpeed API, Supabase, Puppeteer for PDF"
+Substep says: "Use Stripe API, Supabase for transaction storage, webhook handling for async processing"
 
 Validation research:
-1. PageSpeed API: Check rate limits (100/day free? paid tiers?), response format, error handling
-2. Supabase: Multi-tenant patterns (RLS policies? examples?), cost at scale
-3. Puppeteer on Vercel: Memory config (1GB needed?), cold start issues?
+1. Stripe API: Check rate limits (are there any? paid tiers?), webhook signature verification, error handling
+2. Supabase: Multi-tenant patterns (RLS policies for transaction isolation? examples?), cost at scale
+3. Webhooks on Vercel: Timeout handling (5s limit?), retry logic needed?
 4. Integration: How do these work together? Any conflicts?
 
 Document in START_HERE:
 - Validation section (approach confirmed or concerns raised)
-- Gotchas identified (rate limits, memory config)
+- Gotchas identified (webhook timeouts, signature verification)
 - Patterns found (reference examples)
 ```
 
@@ -342,26 +342,26 @@ Document in START_HERE:
 
 **Step 1: Extract requirements from substep**
 ```
-Substep says: "Build audit engine"
+Substep says: "Build payment system"
 
 Requirements implied:
-- Analyzes websites (what metrics?)
-- Generates reports (what format?)
-- Works for SMBs (which verticals?)
+- Accepts payments (which providers? what methods?)
+- Handles subscriptions (recurring? plan changes?)
+- Stores transactions (what data? how secure?)
 ```
 
 **Step 2: Research fills gaps**
 ```
 From competitive analysis:
-- Best tools analyze: Performance, SEO, mobile, accessibility, security (5 metrics)
-- Reports are: PDF format (professional)
-- Verticals: Contractors, law firms, healthcare (multi-vertical)
+- Best systems support: One-time payments, subscriptions, refunds, webhooks (4 core features)
+- Provider choice: Stripe (best developer experience, strong webhooks)
+- Payment methods: Cards, ACH, digital wallets (Apple Pay, Google Pay)
 ```
 
 **Step 3: Add specificity from constraints**
 ```
 From company CONTEXT:
-- Must be multi-tenant (will become SaaS product Inspector)
+- Must be multi-tenant (each user's payments isolated)
 - Must use company tech stack (Next.js + Supabase)
 - Must deliver in 1-2 weeks (impacts scope)
 ```
@@ -370,18 +370,19 @@ From company CONTEXT:
 ```
 In START_HERE.md, Implementation Outcomes section:
 
-NOT: "Build audit tool"
+NOT: "Build payment system"
 
-BUT: "Multi-tenant website audit tool with:
-- Analyzes 5 metrics: Performance (PageSpeed API), SEO (meta tags, structured data), Mobile (responsive, touch targets), Accessibility (WCAG scan), Security (HTTPS, headers)
-- Scoring: Combine metrics into A-F letter grade (weighted: 40% performance, 25% SEO, 20% mobile, 10% accessibility, 5% security)
-- Report format: Professional PDF via Puppeteer (1-2 pages, branded)
-- Delivery: Email to user (Resend integration)
-- Multi-vertical: Works for contractor, law, healthcare sites (universal, not vertical-specific)
-- Architecture: Next.js + Supabase with RLS (multi-tenant from day 1)
-- Performance: <2 min analysis time per site
-- Deployment: tool.yourdomain.com (subdomain)
-- Lead capture: Email collection for sales follow-up"
+BUT: "Multi-tenant payment processing system with:
+- Payment methods: Credit/debit cards (via Stripe), ACH, digital wallets (Apple Pay, Google Pay)
+- One-time payments: Accept single charges, immediate confirmation, email receipts
+- Subscriptions: Recurring billing (monthly/annual), plan changes, cancellations, proration
+- Webhooks: Real-time event processing (payment success/failure, subscription updates, refunds)
+- Security: PCI DSS compliant (tokenized cards), encrypted transaction data, webhook signature verification
+- Architecture: Next.js + Supabase with RLS (multi-tenant transaction isolation)
+- Performance: <500ms payment processing, <1s webhook processing
+- Deployment: app.yourdomain.com/checkout
+- Transaction history: User dashboard showing all payments, subscriptions, invoices
+- Error handling: Graceful failure messages, retry logic for failed webhooks"
 
 This specificity enables AI2 to create precise guides.
 ```
@@ -398,21 +399,21 @@ This specificity enables AI2 to create precise guides.
 
 **Step 1: Identify natural phases**
 ```
-For audit engine substep:
+For payment system substep:
 
 Phase 1: Setup (always first)
   - Git, Vercel, Supabase, environment
 
 Phase 2: Core functionality
-  - PageSpeed API integration
-  - Scoring algorithm
+  - Stripe API integration
+  - One-time payment flow
 
-Phase 3: Report generation
-  - Puppeteer PDF rendering
-  - Email delivery
+Phase 3: Advanced features
+  - Subscription management
+  - Webhook handling
 
 Phase 4: Testing & deployment (always last)
-  - Cross-vertical testing
+  - Payment scenario testing
   - Production launch
 
 Estimate: 4 checkpoints (CP0-CP3)
@@ -439,27 +440,27 @@ Document both options. AI2 decides final split.
 
 **CP0: Infrastructure Setup** (~4 hours)
 - Git repo init (if new), Vercel project, Supabase project
-- Database schema (tables: audits, customers, reports)
-- Environment vars, deployment validation
+- Database schema (tables: payments, subscriptions, transactions, webhooks)
+- Environment vars (Stripe keys), deployment validation
 
-**CP1: Core Analysis Engine** (~2 days)
-- PageSpeed API integration (rate limits: 100/day free)
-- Scoring algorithm (metrics → A-F grade)
-- Basic UI for URL input
+**CP1: One-Time Payments** (~2 days)
+- Stripe API integration (payment intent flow)
+- Checkout UI (card input, payment form)
+- Payment confirmation (success/failure handling)
 
-**CP2: Report Generation** (~2 days)
-- Puppeteer PDF rendering (memory: 1GB config needed)
-- Professional report template design
-- Email delivery integration (Resend)
+**CP2: Subscriptions & Webhooks** (~2 days)
+- Subscription creation (plans, recurring billing)
+- Webhook endpoint (signature verification, async processing)
+- Event handling (payment success, subscription updates, refunds)
 
 **CP3: Testing & Deployment** (~1 day)
-- Cross-vertical testing (contractor, law, healthcare)
-- Performance validation (<2 min analysis)
-- Production deployment (tool.yourdomain.com)
+- Payment scenario testing (card success, decline, 3D Secure, refunds)
+- Performance validation (<500ms payment processing)
+- Production deployment (app.yourdomain.com/checkout)
 
-**AI2 may adjust:** Could be 3 CPs (combine CP1-2) or 5 CPs (split CP1 or CP2 further). This is guidance, not prescription.
+**AI2 may adjust:** Could be 3 CPs (combine CP1-2) or 5 CPs (split CP2 further). This is guidance, not prescription.
 
-**Rationale for 4:** Setup is always separate (CP0). Core and reports are distinct concerns (could be parallel if time-constrained). Testing is comprehensive (final gate).
+**Rationale for 4:** Setup is always separate (CP0). One-time payments and subscriptions are distinct concerns (could be parallel if time-constrained). Testing is comprehensive (final gate).
 ```
 
 **This gives AI2 a starting point. AI2 might change it. That's okay.**
@@ -476,33 +477,34 @@ Document both options. AI2 decides final split.
 ## For AI2 (What to research when creating guides)
 
 **Creating CP0_GUIDE (Setup):**
-- Research: Vercel monorepo setup patterns (docs: vercel.com/docs/monorepos)
+- Research: Vercel environment variables (docs: vercel.com/docs/environment-variables)
 - Research: Database multi-tenant patterns (check previous projects or reference implementations for examples)
-- Research: Database schema best practices (indexes needed? RLS policies?)
-- Include in guide: Exact Vercel project settings, exact Supabase table schema, exact .env variables
+- Research: Database schema best practices (indexes needed? RLS policies for transaction isolation?)
+- Include in guide: Exact Vercel project settings, exact Supabase table schema, exact .env variables (Stripe keys)
 
-**Creating CP1_GUIDE (Analysis Engine):**
-- Research: PageSpeed API integration (docs: developers.google.com/speed/docs/insights)
-- Research: Rate limiting strategies (free tier 100/day - caching? paid tier pricing?)
-- Research: Scoring algorithm design (how to combine 5 metrics into A-F? weights? thresholds?)
-- Include in guide: Exact API calls, exact scoring formula, exact error handling
+**Creating CP1_GUIDE (One-Time Payments):**
+- Research: Stripe Payment Intent API (docs: stripe.com/docs/payments/payment-intents)
+- Research: Card element integration (Stripe.js client-side setup)
+- Research: Error handling (decline codes, 3D Secure redirects)
+- Include in guide: Exact API calls, exact Stripe.js configuration, exact error messages
 
-**Creating CP2_GUIDE (Reports):**
-- Research: Puppeteer on Vercel (memory config: vercel.json functions settings)
-- Research: PDF template design (professional layout, branding, 1-2 pages)
-- Research: Email delivery (Resend API, template rendering)
-- Include in guide: Exact Puppeteer config, exact PDF template code, exact email template
+**Creating CP2_GUIDE (Subscriptions & Webhooks):**
+- Research: Stripe Subscriptions API (recurring billing, plan changes)
+- Research: Webhook signature verification (Stripe webhook secrets)
+- Research: Async webhook processing (background jobs, retry logic)
+- Include in guide: Exact subscription flow, exact webhook handler code, exact signature verification
 
 **Creating CP3_GUIDE (Testing):**
-- Research: Cross-vertical testing strategy (what sites to test? how to validate universal?)
-- Research: Performance benchmarking (how to measure <2min? load testing tools?)
-- Include in guide: Exact test cases (10+ diverse sites), exact performance validation steps
+- Research: Stripe test mode (test card numbers, decline scenarios)
+- Research: Payment scenario testing (success, decline, 3D Secure, refunds)
+- Research: Performance benchmarking (how to measure <500ms? load testing tools?)
+- Include in guide: Exact test card numbers, exact test scenarios, exact performance validation steps
 
 **General guidance for AI2:**
 - Reference previous projects or reference implementations (if available)
 - Don't over-engineer (start simple, iterate)
-- Multi-tenant is critical (every table needs isolation)
-- API rate limits matter (budget for paid tiers)
+- Multi-tenant is critical (every table needs RLS for transaction isolation)
+- Stripe webhook security is non-negotiable (always verify signatures)
 ```
 
 **This tells AI2 where to deep-dive research (saves AI2 time, improves guide quality).**
@@ -596,20 +598,21 @@ Document both options. AI2 decides final split.
 
 **Example level of specificity:**
 
-NOT: "Build audit tool that analyzes websites"
+NOT: "Build payment system that processes payments"
 
-BUT: "Multi-tenant audit tool that:
-- Accepts any website URL (http/https, validates format)
-- Analyzes 5 metrics (Performance via PageSpeed API, SEO via meta tag scan, Mobile via viewport/touch target analysis, Accessibility via WCAG automated scan, Security via header check)
-- Scores each metric 0-100, combines into weighted A-F letter grade (weights: 40% perf, 25% SEO, 20% mobile, 10% a11y, 5% security)
-- Generates professional 1-2 page PDF report (branded with [YourCompany] logo, includes specific recommendations)
-- Delivers report via email (Resend integration, <30 second delivery)
-- Works universally (tested on contractor, law firm, healthcare sites)
-- Performance: Completes analysis in <2 minutes (target: <90 seconds)
-- Architecture: Multi-tenant Supabase (RLS for data isolation, supports future SaaS)
-- Deployment: tool.yourdomain.com subdomain
-- Lead capture: Email collection, stored for sales follow-up
-- Error handling: Graceful failures (site unreachable, PageSpeed timeout, PDF generation failure)"
+BUT: "Multi-tenant payment processing system that:
+- Accepts credit/debit cards (Stripe integration, tokenized for security)
+- Supports payment methods: Cards, ACH, Apple Pay, Google Pay
+- One-time payments: Immediate charge, confirmation page, email receipt
+- Subscriptions: Monthly/annual billing, plan changes with proration, cancellations
+- Webhooks: Real-time event processing (payment success/failure, subscription updates, refunds)
+- Security: PCI DSS compliant, webhook signature verification, encrypted transaction data
+- Works universally (tested with US cards, international cards, 3D Secure authentication)
+- Performance: <500ms payment processing, <1s webhook handling (async background jobs)
+- Architecture: Multi-tenant Supabase (RLS for transaction isolation per user)
+- Deployment: app.yourdomain.com/checkout
+- Transaction history: User dashboard with all payments, subscriptions, invoices
+- Error handling: Graceful decline messages, retry logic for webhooks, refund support"
 
 This specificity means AI2 knows exactly what to guide AI3 to build.
 ```
@@ -730,32 +733,32 @@ Created: /efforts/STEP_X_Y_[NAME]/START_HERE.md (1,200 lines)
 Research duration: 8 hours
 
 Research conducted:
-- Competitive analysis: 7 tools analyzed (inspect.dev, GTMetrix, PageSpeed, others)
-- Technical options: 3 approaches evaluated (PageSpeed API recommended)
-- Design patterns: Analyzed 5 professional report designs
-- Integration research: PageSpeed API, Supabase multi-tenant, Puppeteer PDF
+- Competitive analysis: 5 payment platforms analyzed (Stripe, PayPal, Square, Adyen, Braintree)
+- Technical options: 3 approaches evaluated (Stripe recommended for best API + webhooks)
+- Design patterns: Analyzed 5 professional checkout flows
+- Integration research: Stripe Payment Intents, Subscriptions, Webhooks, Supabase multi-tenant
 
 Implementation outcomes specified:
-- Multi-tenant audit tool (5 metrics: performance, SEO, mobile, a11y, security)
-- PDF reports via Puppeteer, email via Resend
-- Works for contractor, law, healthcare sites (universal)
-- <2 min analysis time, A-F scoring
+- Multi-tenant payment system (one-time payments + subscriptions + refunds)
+- Webhook handling for async processing, email receipts
+- Supports cards, ACH, digital wallets (Apple Pay, Google Pay)
+- <500ms payment processing, PCI compliant
 - [Additional specifics...]
 
 Rough CP estimate: 4 checkpoints
-- CP0: Setup (Vercel + Supabase) - 4h
-- CP1: Analysis engine - 2d
-- CP2: Reports - 2d
+- CP0: Setup (Vercel + Supabase + Stripe) - 4h
+- CP1: One-time payments - 2d
+- CP2: Subscriptions + webhooks - 2d
 - CP3: Testing & deploy - 1d
 
 Key risks identified:
-- PageSpeed rate limits (100/day free)
-- Puppeteer memory on Vercel (1GB config needed)
+- Webhook signature verification (security critical)
+- 3D Secure redirect handling (can be complex)
 
 Recommendations for AI2:
 - Reference previous implementations for database patterns (if available)
-- Plan for API service costs based on chosen providers
-- Test cross-vertical in CP3 (critical for universality)
+- Plan for Stripe costs (2.9% + 30¢ per transaction)
+- Test diverse payment scenarios in CP3 (success, decline, 3D Secure, refunds)
 
 Ready for AI2 planning phase.
 
@@ -837,10 +840,10 @@ Previous substep's AI3 informs your research:
 ### **❌ Mistake 2: Not Making Outcomes Specific Enough**
 
 **Bad START_HERE:**
-> "Implementation outcome: Build audit tool that works well"
+> "Implementation outcome: Build payment system that works well"
 
 **Good START_HERE:**
-> "Implementation outcome: Multi-tenant audit tool analyzing 5 metrics (performance, SEO, mobile, accessibility, security), scoring A-F, generating PDF reports, email delivery, <2min analysis, works across customer segments, deployed to production"
+> "Implementation outcome: Multi-tenant payment system supporting cards/ACH/wallets, one-time payments + subscriptions, webhook processing, email receipts, <500ms processing, PCI compliant, deployed to production"
 
 **Specificity is your job.** Turn vague into concrete.
 
